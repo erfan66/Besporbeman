@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "bf68b932-aa5b-47c6-9c6c-01959ce4d843": {
+      "ProjectGuid": "bf68b932-aa5b-47c6-9c6c-01959ce4d843",
+      "DisplayName": "BesporbemanWeb",
+      "ColorIndex": 0
+    },
+    "48a4dbc6-021d-4782-99c2-9a6055ce0451": {
+      "ProjectGuid": "48a4dbc6-021d-4782-99c2-9a6055ce0451",
+      "DisplayName": "BMDataAccess",
+      "ColorIndex": 1
+    },
+    "5480de2b-2550-4a52-98b4-34014f8e5c4b": {
+      "ProjectGuid": "5480de2b-2550-4a52-98b4-34014f8e5c4b",
+      "DisplayName": "BMModel",
+      "ColorIndex": 2
+    },
+    "37d119e1-0e9a-447d-ade0-3d3aa12cf33f": {
+      "ProjectGuid": "37d119e1-0e9a-447d-ade0-3d3aa12cf33f",
+      "DisplayName": "BMUtility",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}
