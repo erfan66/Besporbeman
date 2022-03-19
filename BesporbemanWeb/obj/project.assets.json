@@ -828,6 +828,21 @@
             "rid": "win"
           }
         }
+      },
+      "BMDataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.3",
+          "Microsoft.EntityFrameworkCore": "6.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3"
+        },
+        "compile": {
+          "bin/placeholder/BMDataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BMDataAccess.dll": {}
+        }
       }
     }
   },
@@ -2464,10 +2479,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BMDataAccess/1.0.0": {
+      "type": "project",
+      "path": "../BMDataAccess/BMDataAccess.csproj",
+      "msbuildProject": "../BMDataAccess/BMDataAccess.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BMDataAccess >= 1.0.0",
       "MailKit >= 3.1.1",
       "Microsoft.AspNetCore.Authentication.Facebook >= 6.0.3",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.3",
@@ -2508,7 +2529,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\VS2022\\Besporbeman\\BMDataAccess\\BMDataAccess.csproj": {
+              "projectPath": "D:\\VS2022\\Besporbeman\\BMDataAccess\\BMDataAccess.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
