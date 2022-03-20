@@ -16,4 +16,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BMModel\BMModel.csproj" />
+  </ItemGroup>
+
 </Project>
