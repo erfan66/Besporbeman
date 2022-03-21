@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BMModel.Model
+namespace BMModel
 {
     public class Transfer
     {

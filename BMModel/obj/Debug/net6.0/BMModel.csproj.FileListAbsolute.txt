@@ -1,0 +1,12 @@
+D:\VS2022\Besporbeman\BMModel\bin\Debug\net6.0\BMModel.deps.json
+D:\VS2022\Besporbeman\BMModel\bin\Debug\net6.0\BMModel.dll
+D:\VS2022\Besporbeman\BMModel\bin\Debug\net6.0\BMModel.pdb
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\BMModel.csproj.AssemblyReference.cache
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\BMModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\BMModel.AssemblyInfoInputs.cache
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\BMModel.AssemblyInfo.cs
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\BMModel.csproj.CoreCompileInputs.cache
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\BMModel.dll
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\refint\BMModel.dll
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\BMModel.pdb
+D:\VS2022\Besporbeman\BMModel\obj\Debug\net6.0\ref\BMModel.dll

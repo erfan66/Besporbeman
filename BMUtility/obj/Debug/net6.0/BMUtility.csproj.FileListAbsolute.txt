@@ -1,0 +1,12 @@
+D:\VS2022\Besporbeman\BMUtility\bin\Debug\net6.0\BMUtility.deps.json
+D:\VS2022\Besporbeman\BMUtility\bin\Debug\net6.0\BMUtility.dll
+D:\VS2022\Besporbeman\BMUtility\bin\Debug\net6.0\BMUtility.pdb
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\BMUtility.csproj.AssemblyReference.cache
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\BMUtility.GeneratedMSBuildEditorConfig.editorconfig
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\BMUtility.AssemblyInfoInputs.cache
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\BMUtility.AssemblyInfo.cs
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\BMUtility.csproj.CoreCompileInputs.cache
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\BMUtility.dll
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\refint\BMUtility.dll
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\BMUtility.pdb
+D:\VS2022\Besporbeman\BMUtility\obj\Debug\net6.0\ref\BMUtility.dll

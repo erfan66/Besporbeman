@@ -1,7 +1,7 @@
-﻿using BMModel.Areas;
+﻿using BMModel;
+using BMModel.Areas;
 using BMModel.Categories;
 using BMModel.Categories.Types;
-using BMModel.Model;
 using BMModel.Personals;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,18 +24,9 @@ namespace BMDataAccess.Data
         public DbSet<Electronic> Electronic { get; set; }
         public DbSet<NonElectronic> NonElectronic { get; set; }
         public DbSet<Kind> Kind { get; set; }
-
         public DbSet<Material> Material { get; set; }
         public DbSet<Receiver> Receiver { get; set; }
-
         public DbSet<Sender> Sender { get; set; }
         public DbSet<Transfer> Transfer { get; set; }
-
-
-
-
-
-
-
     }
 }

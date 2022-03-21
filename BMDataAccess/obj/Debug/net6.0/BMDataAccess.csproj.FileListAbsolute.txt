@@ -1,0 +1,17 @@
+D:\VS2022\Besporbeman\BMDataAccess\bin\Debug\net6.0\BMDataAccess.deps.json
+D:\VS2022\Besporbeman\BMDataAccess\bin\Debug\net6.0\BMDataAccess.runtimeconfig.json
+D:\VS2022\Besporbeman\BMDataAccess\bin\Debug\net6.0\BMDataAccess.dll
+D:\VS2022\Besporbeman\BMDataAccess\bin\Debug\net6.0\BMDataAccess.pdb
+D:\VS2022\Besporbeman\BMDataAccess\bin\Debug\net6.0\BMModel.dll
+D:\VS2022\Besporbeman\BMDataAccess\bin\Debug\net6.0\BMModel.pdb
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.csproj.AssemblyReference.cache
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.AssemblyInfoInputs.cache
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.AssemblyInfo.cs
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.csproj.CoreCompileInputs.cache
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.csproj.CopyComplete
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.dll
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\refint\BMDataAccess.dll
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.pdb
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\BMDataAccess.genruntimeconfig.cache
+D:\VS2022\Besporbeman\BMDataAccess\obj\Debug\net6.0\ref\BMDataAccess.dll
