@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Admin\Categories\" />
     <Folder Include="Pages\Customer\" />
   </ItemGroup>
 
