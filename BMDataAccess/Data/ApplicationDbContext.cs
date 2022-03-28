@@ -29,5 +29,6 @@ namespace BMDataAccess.Data
         public DbSet<Sender> Sender { get; set; }
         public DbSet<Transfer> Transfer { get; set; }
         public DbSet<Advertise> Advertise { get; set; }
+        public DbSet<Goods> Goods { get; set; }
     }
 }
