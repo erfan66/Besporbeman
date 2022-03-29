@@ -11,9 +11,20 @@ namespace BMModel
 {
     public class Goods
     {
+        public Goods()
+        {
+            Count = 1;
+        }
         [Key]
         public int Id { get; set; }
+        [Required]
         public string Title { get; set; }
+        public int Count { get; set; }
+        [Required]
+        public double Weight { get; set; }
+        public double Width { get; set; }
+        public double Length { get; set; }
+        public double Height { get; set; }
         [Required]
         public int KindId { get; set; }
         [ForeignKey("KindId")]

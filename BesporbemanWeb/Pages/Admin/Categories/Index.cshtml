@@ -22,10 +22,10 @@
 					Goods Name
 				</th>
 				<th>
-					Kind Name
+					Kind
 				</th>
 				<th>
-					Material Name
+					Material
 				</th>
 				<th></th>
 			</tr>
@@ -34,21 +34,9 @@
 			@foreach(var obj in Model.AllGoods)
 			{
 				<tr>
-					<td width="50%">@obj.Title</td>
-					@if(obj.Kind.Doc.Title!=null){
-						<td width="50%">@obj.Kind.Doc.Title</td>
-					}
-					else
-						{
-							@if(obj.Kind.Electronic.Title!=null){
-						<td width="50%">@obj.Kind.Electronic.Title</td>
-							}
-					else
-						{
-							<td width="50%">@obj.Kind.NonElectronic.Title</td>
-						}
-
-					<td width="30%">@obj.Material.Title</td>
+					<td width="20%">@obj.Title</td>
+					<td width="20%">@obj.Kind.Type</td>
+					<td width="20%">@obj.Material.Title</td>
 					<td>
 						<div class="w-75 btn-group" role="group">
 						<a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">

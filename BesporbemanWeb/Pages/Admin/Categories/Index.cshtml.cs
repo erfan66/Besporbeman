@@ -15,7 +15,7 @@ namespace BesporbemanWeb.Pages.Admin.Categories
         }
         public void OnGet()
         {
-            AllGoods = _unitOfWork.Goods.GetAll();
+            AllGoods = _unitOfWork.Goods.GetAll(includeProperties: "Kind,Material");
         }
     }
 }

@@ -15,8 +15,12 @@ namespace BMDataAccess.Repository
         {
             _db = db;
             Goods = new GoodsRepository(_db);
+            Kind = new KindRepository(_db);
+            Material = new MaterialRepository(_db);
         }
         public IGoodsRepository Goods { get; private set; }
+        public IKindRepository Kind { get; private set; }
+        public IMaterialRepository Material { get; private set; }
 
         public void Dispose()
         {

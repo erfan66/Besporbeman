@@ -4,6 +4,7 @@ using BMDataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BMDataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220329102631_addMorePropertyToKind")]
+    partial class addMorePropertyToKind
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,11 +113,26 @@ namespace BMDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("DocId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ElectronicId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NonElectronicId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DocId");
+
+                    b.HasIndex("ElectronicId");
+
+                    b.HasIndex("NonElectronicId");
 
                     b.ToTable("Kind");
                 });
@@ -137,7 +154,7 @@ namespace BMDataAccess.Migrations
                     b.ToTable("Material");
                 });
 
-            modelBuilder.Entity("BMModel.Goods", b =>
+            modelBuilder.Entity("BMModel.Categories.Types.Doc", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -151,14 +168,8 @@ namespace BMDataAccess.Migrations
                     b.Property<double>("Height")
                         .HasColumnType("float");
 
-                    b.Property<int>("KindId")
-                        .HasColumnType("int");
-
                     b.Property<double>("Length")
                         .HasColumnType("float");
-
-                    b.Property<int>("MaterialId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -169,6 +180,93 @@ namespace BMDataAccess.Migrations
 
                     b.Property<double>("Width")
                         .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Doc");
+                });
+
+            modelBuilder.Entity("BMModel.Categories.Types.Electronic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Height")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Length")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Weight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Width")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Electronic");
+                });
+
+            modelBuilder.Entity("BMModel.Categories.Types.NonElectronic", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Height")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Length")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Weight")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Width")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NonElectronic");
+                });
+
+            modelBuilder.Entity("BMModel.Goods", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("KindId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaterialId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -378,6 +476,33 @@ namespace BMDataAccess.Migrations
                     b.Navigation("Sender");
 
                     b.Navigation("Transfer");
+                });
+
+            modelBuilder.Entity("BMModel.Categories.Kind", b =>
+                {
+                    b.HasOne("BMModel.Categories.Types.Doc", "Doc")
+                        .WithMany()
+                        .HasForeignKey("DocId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BMModel.Categories.Types.Electronic", "Electronic")
+                        .WithMany()
+                        .HasForeignKey("ElectronicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BMModel.Categories.Types.NonElectronic", "NonElectronic")
+                        .WithMany()
+                        .HasForeignKey("NonElectronicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doc");
+
+                    b.Navigation("Electronic");
+
+                    b.Navigation("NonElectronic");
                 });
 
             modelBuilder.Entity("BMModel.Goods", b =>

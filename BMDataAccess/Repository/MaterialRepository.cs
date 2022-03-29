@@ -1,6 +1,7 @@
 ﻿using BMDataAccess.Data;
 using BMDataAccess.Repository.IRepository;
 using BMModel;
+using BMModel.Categories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,17 @@ using System.Threading.Tasks;
 
 namespace BMDataAccess.Repository
 {
-    public class GoodsRepository : Repository<Goods>, IGoodsRepository
+    public class MaterialRepository : Repository<Material>, IMaterialRepository
     {
         private readonly ApplicationDbContext _db;
-        public GoodsRepository(ApplicationDbContext db):base (db)
+        public MaterialRepository(ApplicationDbContext db):base (db)
         {
             _db = db;
         }
-        public void Update(Goods goods)
+
+        public void Update(Material material)
         {
-            _db.Goods.Update(goods);
+            _db.Material.Update(material);
         }
     }
 }

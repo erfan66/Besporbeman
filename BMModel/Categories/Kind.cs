@@ -1,5 +1,4 @@
-﻿using BMModel.Categories.Types;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,15 +13,6 @@ namespace BMModel.Categories
     {
         [Key]
         public int Id { get; set; }
-        public int DocId { get; set; }
-        [ForeignKey("DocId")]
-        public Doc Doc { get; set; }
-        public int ElectronicId { get; set; }
-        [ForeignKey("ElectronicId")]
-        public Electronic Electronic { get; set; }
-        public int NonElectronicId { get; set; }
-        [ForeignKey("NonElectronicId")]
-        public NonElectronic NonElectronic { get; set; }
-
+        public string Type { get; set; }
     }
 }
