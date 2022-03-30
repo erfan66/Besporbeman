@@ -3,19 +3,19 @@ using BMModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BesporbemanWeb.Pages.Admin.Categories
+namespace BesporbemanWeb.Pages.Admin.Categories.Goodses
 {
-    public class IndexModel : PageModel
+    public class UpsertModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;
-        public IEnumerable<Goods> AllGoods { get; set; }
-        public IndexModel(IUnitOfWork unitOfWork)
+        public Goods Goods { get; set; }
+        public UpsertModel(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
         public void OnGet()
         {
-            AllGoods = _unitOfWork.Goods.GetAll(includeProperties: "Kind,Material");
+            
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BMDataAccess.Repository.IRepository
 {
-    public interface IMaterialRepository
+    public interface IMaterialRepository:IRepository<Material>
     {
         void Update(Material material);
     }

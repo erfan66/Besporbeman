@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BMDataAccess.Repository.IRepository
 {
-    public interface IKindRepository
+    public interface IKindRepository:IRepository<Kind>
     {
         void Update(Kind kind);
     }
