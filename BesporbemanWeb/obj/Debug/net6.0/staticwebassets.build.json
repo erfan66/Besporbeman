@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vh51RhmeKcUPZ5l8trA4p42hHlodjjBjFmmZfMn8078=",
+  "Hash": "VqFv9zVsbPcT/xBiH1z/DHI6ArT71Qm07Mz/IQleBAM=",
   "Source": "BesporbemanWeb",
   "BasePath": "_content/BesporbemanWeb",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\VS2022\\Besporbeman\\BesporbemanWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BesporbemanWeb.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\VS2022\\Besporbeman\\BesporbemanWeb\\wwwroot\\css\\Flaty.css",
+      "SourceId": "BesporbemanWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\VS2022\\Besporbeman\\BesporbemanWeb\\wwwroot\\",
+      "BasePath": "_content/BesporbemanWeb",
+      "RelativePath": "css/Flaty.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Flaty.css"
     },
     {
       "Identity": "D:\\VS2022\\Besporbeman\\BesporbemanWeb\\wwwroot\\css\\site.css",
