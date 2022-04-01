@@ -1,18 +1,18 @@
 ﻿@page
-@model BesporbemanWeb.Pages.Admin.Categories.Kinds.EditModel
+@model BesporbemanWeb.Pages.Admin.Categories.Materials.EditModel
 
 <form method="post">
-	<input hidden asp-for="Kind.Id" />
+	<input hidden asp-for="Material.Id" />
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
-			<h2 class="text-primary pl-3">Update Kind</h2>
+			<h2 class="text-primary pl-3">Update Material</h2>
             <hr />
 		</div>
 		<div asp-validation-summary="All"></div>
 		<div class="mb-3">
-			<label asp-for="Kind.Type"></label>
-			<input asp-for="Kind.Type" class="form-control" />
-			<span asp-validation-for="Kind.Type" class="text-danger"></span>
+			<label asp-for="Material.Title"></label>
+			<input asp-for="Material.Title" class="form-control" />
+			<span asp-validation-for="Material.Title" class="text-danger"></span>
 		</div>
 		<button type="submit" class="btn btn-primary" style="width:150px;">Update</button>
 		<a asp-page="Index" class="btn btn-secondary"  style="width:150px;"> Back</a>
