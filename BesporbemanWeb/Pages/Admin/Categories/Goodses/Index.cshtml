@@ -4,56 +4,36 @@
 <div class="container p-3">
 	<div class="row pt-4">
 		<div class="col-6">
-			<h2 class="text-primary">Goods List</h2>
+			<h2 class="text-primary">Goodses List</h2>
 		</div>
 		<div class="col-6 text-end">
-			<a asp-page="create" class="btn btn-primary">
-				<i class="bi bi-plus-square"></i> &nbsp;Create New Goods
+			<a asp-page="Upsert" class="btn btn-primary">
+				<i class="bi bi-plus-square"></i> &nbsp;Create New Menu Item
 			</a>
 		</div>
 	</div>
 
 	<br /><br />
 
-	<table class="table table-bordered table-striped" style="width:100%">
+	<table id="DT_load" class="table table-bordered table-striped" style="width:100%">
 		<thead>
 			<tr>
-				<th>
-					Goods Name
-				</th>
-				<th>
-					Kind
-				</th>
-				<th>
-					Material
-				</th>
+				<th>Title</th>
+                <th>Count</th>
+                <th>Kinds</th>
+                <th>Materials</th>
+				<th>Weight</th>
+                <th>Width</th>
+                <th>Kinds</th>
+                <th>Length</th>
+				<th>Height</th>
 				<th></th>
 			</tr>
 		</thead>
-		<tbody>
-			@foreach(var obj in Model.AllGoods)
-			{
-				<tr>
-					<td width="20%">@obj.Title</td>
-					<td width="20%">@obj.Kind.Type</td>
-					<td width="20%">@obj.Material.Title</td>
-					<td>
-						<div class="w-75 btn-group" role="group">
-						<a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
-							<i class="bi bi-pencil-square"></i>
-						</a>
-						<a asp-page="Delete" asp-route-id="@obj.Id"  class="btn btn-danger mx-2">
-							<i class="bi bi-trash-fill"></i>
-						</a>
-						</div>
-					</td>
-						
-					}
-					
-				</tr>
-			}
-			
-		</tbody>
 	</table>
 
 </div>
+
+@section Scripts{
+	<script src="~/js/goodses.js"></script>
+}
