@@ -1,0 +1,89 @@
+﻿@page
+@model BesporbemanWeb.Pages.Admin.Goodses.UpsertModel
+
+<form method="post" >
+    <input asp-for="Goods.Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <div class="col-12">
+                <h2 class="text-primary pl-3">
+                    @(Model.Goods.Id!=0?"Update":"Create") Goods
+                </h2>
+                <hr />
+                <div class="mb-3">
+                    <label asp-for="Goods.Title"></label>
+                    <input asp-for="Goods.Title" class="form-control" />
+                    <span asp-validation-for="Goods.Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Goods.Count"></label>
+                    <input asp-for="Goods.Count" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Goods.KindId"></label>
+                    <select asp-for="Goods.KindId" asp-items="Model.KindList" class="form-select">
+                        <option disabled selected>-Select Kind</option>
+                    </select>
+                    <span asp-validation-for="Goods.KindId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Goods.MaterialId"></label>
+                    <select asp-for="Goods.MaterialId" asp-items="Model.MaterialList" class="form-select">
+                        <option disabled selected>-Select Material</option>
+                    </select>
+                    <span asp-validation-for="Goods.MaterialId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Goods.Weight"></label>
+                    <input asp-for="Goods.Weight" class="form-control" />
+                    <span asp-validation-for="Goods.Weight" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Goods.Width"></label>
+                    <input asp-for="Goods.Width" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Goods.Length"></label>
+                    <input asp-for="Goods.Length" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Goods.Height"></label>
+                    <input asp-for="Goods.Height" class="form-control" />
+                </div>
+            </div>
+        </div>
+        @if(Model.Goods.Id!=0)
+        {
+            <button type="submit" class="btn btn-primary" style="width:auto;">Update</button>
+        }
+        else
+        {
+            <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:auto;">Create</button>
+        }
+        <a asp-page="Index" class="btn btn-secondary" style="width:auto;">Back to List</a>
+    </div>
+</form>
+
+@section Scripts{
+<script>
+	 tinymce.init({
+	   selector: 'textarea',
+	   plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+	   toolbar_mode: 'floating',
+	});
+	function ValidateInput(){
+		if(document.getElementById("uploadBox").value==""){
+			Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'Please fill required items!',
+			});
+			return false;
+		}
+		return true;
+	}
+</script>
+	@{
+	<partial name="_ValidationScriptsPartial" />
+	}
+}
