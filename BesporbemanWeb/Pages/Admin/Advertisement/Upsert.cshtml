@@ -1,0 +1,94 @@
+﻿@page
+@model BesporbemanWeb.Pages.Admin.Advertisement.UpsertModel
+
+<form method="post" >
+    <input asp-for="Advertise.Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <div class="col-12">
+                <h2 class="text-primary pl-3">
+                    @(Model.Advertise.Id!=0?"Update":"Create") Goods
+                </h2>
+                <hr />
+                <div class="mb-3">
+                    <label asp-for="Advertise.Title"></label>
+                    <input asp-for="Advertise.Title" class="form-control" />
+                    <span asp-validation-for="Advertise.Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.Count"></label>
+                    <input asp-for="Advertise.Count" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.KindId"></label>
+                    <select asp-for="Advertise.KindId" asp-items="Model.KindList" class="form-select">
+                        <option disabled selected>-Select Kind</option>
+                    </select>
+                    <span asp-validation-for="Advertise.KindId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.MaterialId"></label>
+                    <select asp-for="Advertise.MaterialId" asp-items="Model.MaterialList" class="form-select">
+                        <option disabled selected>-Select Material</option>
+                    </select>
+                    <span asp-validation-for="Advertise.MaterialId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.Weight"></label>
+                    <input asp-for="Advertise.Weight" class="form-control" />
+                    <span asp-validation-for="Advertise.Weight" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.Width"></label>
+                    <input asp-for="Advertise.Width" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.Length"></label>
+                    <input asp-for="Advertise.Length" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.Height"></label>
+                    <input asp-for="Advertise.Height" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.Description"></label>
+                    <textarea asp-for="Advertise.Description" class="form-control"></textarea>
+                    <span asp-validation-for="Advertise.Description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        @if(Model.Advertise.Id!=0)
+        {
+            <button type="submit" class="btn btn-primary" style="width:auto;">Update</button>
+        }
+        else
+        {
+            <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:auto;">Create</button>
+        }
+        <a asp-page="Index" class="btn btn-secondary" style="width:auto;">Back to List</a>
+    </div>
+</form>
+
+@section Scripts{
+<script>
+	 tinymce.init({
+	   selector: 'textarea',
+	   plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+	   toolbar_mode: 'floating',
+	});
+	function ValidateInput(){
+		if(document.getElementById("uploadBox").value==""){
+			Swal.fire({
+			  icon: 'error',
+			  title: 'Oops...',
+			  text: 'Please fill required items!',
+			});
+			return false;
+		}
+		return true;
+	}
+</script>
+	@{
+	<partial name="_ValidationScriptsPartial" />
+	}
+}

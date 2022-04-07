@@ -3,7 +3,7 @@ using BMModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BesporbemanWeb.Pages.Admin.Goodses
+namespace BesporbemanWeb.Pages.Admin.Advertisement
 {
     public class IndexModel : PageModel
     {

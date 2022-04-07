@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\VS2022\Besporbeman\BesporbemanWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Admin/Advertisement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQWR2ZXJ0aXNlbWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Admin/Advertisement/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQWR2ZXJ0aXNlbWVudFxVcHNlcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Admin/Categories/Kinds/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmllc1xLaW5kc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -45,14 +53,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Admin/Categories/Materials/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmllc1xNYXRlcmlhbHNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Admin/Goodses/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cR29vZHNlc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Admin/Goodses/Upsert.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cR29vZHNlc1xVcHNlcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Error.cshtml]

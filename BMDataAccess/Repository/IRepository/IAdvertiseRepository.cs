@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BMDataAccess.Repository.IRepository
 {
-    public interface IGoodsRepository:IRepository<Goods>
+    public interface IAdvertiseRepository:IRepository<Advertise>
     {
-        void Update(Goods goods);
+        void Update(Advertise advertise);
     }
 }

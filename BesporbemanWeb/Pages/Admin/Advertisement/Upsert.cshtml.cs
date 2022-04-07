@@ -4,25 +4,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace BesporbemanWeb.Pages.Admin.Goodses
+namespace BesporbemanWeb.Pages.Admin.Advertisement
 {
+    [BindProperties]
     public class UpsertModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;
-        public Goods Goods { get; set; }
+        public Advertise Advertise { get; set; }
         public IEnumerable<SelectListItem> KindList { get; set; }
         public IEnumerable<SelectListItem> MaterialList { get; set; }
         public UpsertModel(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            Goods = new();
+            Advertise = new();
         }
         public void OnGet(int? id)
         {
-            if (Goods.Id!=0)
+            if (Advertise.Id!=0)
             {
                 //edit
-                Goods = _unitOfWork.Goods.GetFirstOrDefault(x => x.Id == id);
+                Advertise = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id);
             }
             KindList = _unitOfWork.Kind.GetAll().Select(c => new SelectListItem()
             {
@@ -38,12 +39,12 @@ namespace BesporbemanWeb.Pages.Admin.Goodses
         }
         public async Task<IActionResult> OnPost()
         {
-            if (Goods.Id==0)
+            if (Advertise.Id==0)
             {
-                _unitOfWork.Goods.Add(Goods);
+                _unitOfWork.Advertise.Add(Advertise);
                 _unitOfWork.Save();
             }
-            _unitOfWork.Goods.Update(Goods);
+            _unitOfWork.Advertise.Update(Advertise);
             _unitOfWork.Save();
             return RedirectToPage("./Index");
         }

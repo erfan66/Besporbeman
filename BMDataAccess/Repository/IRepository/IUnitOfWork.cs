@@ -8,9 +8,11 @@ namespace BMDataAccess.Repository.IRepository
 {
     public interface IUnitOfWork:IDisposable
     {
-        IGoodsRepository Goods { get; }
+        IAdvertiseRepository Advertise { get; }
         IKindRepository Kind { get; }
         IMaterialRepository Material { get; }
+        ICityRepository City { get; }
+        ICountryRepository Country { get; }
         void Save();
 
     }

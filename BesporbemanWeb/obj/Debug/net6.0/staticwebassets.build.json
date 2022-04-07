@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WqH3SGPpC4XKyU6hG+n0MCs3C5j2sjO/4cZHTBrkWXo=",
+  "Hash": "/W1YRgnnt8mBsVhJr1kmcj4TYCLTTe/4ON3lFFKtznM=",
   "Source": "BesporbemanWeb",
   "BasePath": "_content/BesporbemanWeb",
   "Mode": "Default",
@@ -1190,12 +1190,12 @@
       "OriginalItemSpec": "wwwroot\\images\\header\\3.jpg"
     },
     {
-      "Identity": "D:\\VS2022\\Besporbeman\\BesporbemanWeb\\wwwroot\\js\\goodses.js",
+      "Identity": "D:\\VS2022\\Besporbeman\\BesporbemanWeb\\wwwroot\\js\\advertisement.js",
       "SourceId": "BesporbemanWeb",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\VS2022\\Besporbeman\\BesporbemanWeb\\wwwroot\\",
       "BasePath": "_content/BesporbemanWeb",
-      "RelativePath": "js/goodses.js",
+      "RelativePath": "js/advertisement.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1204,7 +1204,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\goodses.js"
+      "OriginalItemSpec": "wwwroot\\js\\advertisement.js"
     },
     {
       "Identity": "D:\\VS2022\\Besporbeman\\BesporbemanWeb\\wwwroot\\js\\site.js",

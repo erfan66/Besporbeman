@@ -14,14 +14,17 @@ namespace BMDataAccess.Repository
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
-            Goods = new GoodsRepository(_db);
+            Advertise = new AdvertiseRepository(_db);
             Kind = new KindRepository(_db);
             Material = new MaterialRepository(_db);
+            City = new CityRepository(_db);
+            Country = new CountryRepository(_db);
         }
-        public IGoodsRepository Goods { get; private set; }
+        public IAdvertiseRepository Advertise { get; private set; }
         public IKindRepository Kind { get; private set; }
         public IMaterialRepository Material { get; private set; }
-
+        public ICityRepository City { get; private set; }
+        public ICountryRepository Country { get;private set; }
         public void Dispose()
         {
             _db.Dispose();
