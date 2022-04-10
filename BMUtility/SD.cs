@@ -21,5 +21,9 @@ namespace BMUtility
 		public const string StatusRefunded = "Refunded";
 		public const string SessionCart = "SessionCart";
 
+		//Advertise
+		public const string Valid = "Is Valid";
+		public const string InValid = "Is not Valid";
+
 	}
 }

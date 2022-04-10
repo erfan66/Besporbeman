@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BMDataAccess\BMDataAccess.csproj" />
+    <ProjectReference Include="..\BMUtility\BMUtility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

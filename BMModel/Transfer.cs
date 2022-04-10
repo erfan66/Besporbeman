@@ -16,21 +16,13 @@ namespace BMModel
         [Key]
         public int Id { get; set; }
         [Required]
-        public int SenderId { get; set; }
-        [ForeignKey("SenderId")]
-        public Sender Sender { get; set; }
-        [Required]
         public int ReceiverId { get; set; }
         [ForeignKey("ReceiverId")]
         public Receiver Receiver { get; set; }
         [Required]
-        public int KindId { get; set; }
-        [ForeignKey("KindId")]
-        public Kind Kind { get; set; }
-        [Required]
-        public int MaterialId { get; set; }
-        [ForeignKey("MaterialId")]
-        public Material Material { get; set; }
+        public int AdvertiseId { get; set; }
+        [ForeignKey("AdvertiseId")]
+        public Advertise Advertise { get; set; }
         [Required]
         public int OriginCityId { get; set; }
         [ForeignKey("OriginCityId")]

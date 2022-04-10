@@ -1,4 +1,5 @@
-﻿using BMModel.Categories;
+﻿using BMModel.Areas;
+using BMModel.Categories;
 using BMModel.Personals;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,10 @@ namespace BMModel
 {
     public class Advertise
     {
+        public Advertise()
+        {
+            ValidityDate = DateTime.Now;
+        }
         [Key]
         public int Id { get; set; }
         [Display(Name = "Title(Name of Goods)")]
@@ -43,16 +48,22 @@ namespace BMModel
         [ForeignKey("MaterialId")]
         public Material Material { get; set; }
         [Required]
+        [Display(Name ="City")]
+        public int CityId { get; set; }
+        [ForeignKey("CityId")]
+        public City City { get; set; }
+        [Required]
+        [Display(Name ="Country")]
+        public int CountryId { get; set; }
+        [ForeignKey("CountryId")]
+        public Country Country { get; set; }
+        [Required]
+        [Display(Name ="Date of Advertise")]
         public DateTime DateOfAdvertise { get; set; } = DateTime.Now;
         [Required]
+        [Display(Name ="Validity Date")]
         public DateTime ValidityDate { get; set; }
         [Required]
-        public int SenderId { get; set; }
-        [ForeignKey("SenderId")]
-        public Sender Sender { get; set; }
-        [Required]
-        public int TransferId { get; set; }
-        [ForeignKey("TransferId")]
-        public Transfer Transfer { get; set; }
+        public string Status { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 $(document).ready(function () {
     dataTable = $('#DT_load').DataTable({
         "ajax": {
-            "url": "/api/Advertisement",
+            "url": "/api/Advertise",
             "type": "GET",
             "datatype": "json"
         },
@@ -10,10 +10,9 @@ $(document).ready(function () {
             { "data": "title", "width": "25%" },
             { "data": "kind.type", "width": "15%" },
             { "data": "material.title", "width": "15%" },
-            { "data": "Weight", "width": "15%" },
-            { "data": "width", "width": "15%" },
-            { "data": "length", "width": "15%" },
-            { "data": "height", "width": "15%" },
+            { "data": "weight", "width": "15%" },
+            { "data": "dateOfAdvertise", "width": "15%" },
+            { "data": "status", "width": "15%" },
             {
                 "data": "id",
                 "render": function (data) {

@@ -9,6 +9,7 @@
       "BesporbemanWeb/1.0.0": {
         "dependencies": {
           "BMDataAccess": "1.0.0",
+          "BMUtility": "1.0.0",
           "MailKit": "3.1.1",
           "Microsoft.AspNetCore.Authentication.Facebook": "6.0.3",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.3",
@@ -2530,6 +2531,16 @@
         "runtime": {
           "BMModel.dll": {}
         }
+      },
+      "BMUtility/1.0.0": {
+        "dependencies": {
+          "MailKit": "3.1.1",
+          "Microsoft.AspNetCore.Identity.UI": "6.0.3",
+          "MimeKit": "3.1.1"
+        },
+        "runtime": {
+          "BMUtility.dll": {}
+        }
       }
     }
   },
@@ -3987,6 +3998,11 @@
       "sha512": ""
     },
     "BMModel/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BMUtility/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

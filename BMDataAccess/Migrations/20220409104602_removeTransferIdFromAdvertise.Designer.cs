@@ -4,6 +4,7 @@ using BMDataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BMDataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220409104602_removeTransferIdFromAdvertise")]
+    partial class removeTransferIdFromAdvertise
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,13 +32,7 @@ namespace BMDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Count")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfAdvertise")
@@ -58,9 +54,8 @@ namespace BMDataAccess.Migrations
                     b.Property<int>("MaterialId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -77,13 +72,11 @@ namespace BMDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CountryId");
-
                     b.HasIndex("KindId");
 
                     b.HasIndex("MaterialId");
+
+                    b.HasIndex("SenderId");
 
                     b.ToTable("Advertise");
                 });
@@ -314,18 +307,6 @@ namespace BMDataAccess.Migrations
 
             modelBuilder.Entity("BMModel.Advertise", b =>
                 {
-                    b.HasOne("BMModel.Areas.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BMModel.Areas.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BMModel.Categories.Kind", "Kind")
                         .WithMany()
                         .HasForeignKey("KindId")
@@ -338,13 +319,17 @@ namespace BMDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("City");
-
-                    b.Navigation("Country");
+                    b.HasOne("BMModel.Personals.Sender", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Kind");
 
                     b.Navigation("Material");
+
+                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("BMModel.Personals.Receiver", b =>

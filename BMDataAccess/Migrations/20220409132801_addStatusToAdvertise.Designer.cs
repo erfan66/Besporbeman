@@ -4,6 +4,7 @@ using BMDataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BMDataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220409132801_addStatusToAdvertise")]
+    partial class addStatusToAdvertise
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,6 +60,9 @@ namespace BMDataAccess.Migrations
                     b.Property<int>("MaterialId")
                         .HasColumnType("int");
 
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +89,8 @@ namespace BMDataAccess.Migrations
                     b.HasIndex("KindId");
 
                     b.HasIndex("MaterialId");
+
+                    b.HasIndex("SenderId");
 
                     b.ToTable("Advertise");
                 });
@@ -338,6 +345,12 @@ namespace BMDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BMModel.Personals.Sender", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("City");
 
                     b.Navigation("Country");
@@ -345,6 +358,8 @@ namespace BMDataAccess.Migrations
                     b.Navigation("Kind");
 
                     b.Navigation("Material");
+
+                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("BMModel.Personals.Receiver", b =>
