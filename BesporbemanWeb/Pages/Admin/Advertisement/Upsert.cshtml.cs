@@ -23,7 +23,7 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
         }
         public void OnGet(int? id)
         {
-            if (Advertise.Id!=0)
+            if (id!=null)
             {
                 //edit
                 Advertise = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id);

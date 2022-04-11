@@ -19,7 +19,7 @@ $(document).ready(function () {
                     return `<div class="w-75 btn-group" >
                             <a href="/Admin/Advertisement/upsert?id=${data}"  class="btn btn-success text-white mx-2">
                             <i class="bi bi-pencil-square"></i>  </a>
-                            <a onClick=Delete('/api/Advertisement/'+${data})  class="btn btn-danger text-white mx-2">
+                            <a onClick=Delete('/api/Advertise/'+${data})  class="btn btn-danger text-white mx-2">
                              <i class="bi bi-trash-fill"></i>  </a>
                             </div>`
                 },

@@ -10,6 +10,10 @@
 			<div class="col-lg-4 col-md-6 pb-4 filter">
 				<div class="card bg-white rounded shadow-sm" style="border:1px solid #222">
 					<div class="card-body pb-1 row">
+						<div class="col-6 border-0">
+							<span class="badge p-2 mb-2 border w-100 bg-dark ">@advertise.DateOfAdvertise</span>
+						</div>
+						<hr>
 						<div class="col-8 h5">@advertise.Title</div>
 						<div class="col-4 text-end"><span class="text-info h4">@advertise.Count</span></div>
 					</div>
@@ -19,6 +23,9 @@
 						</div>
 						<div class="col-6 border-0">
 							<span class="badge p-2 border w-100 bg-info ">@advertise.Material.Title</span>
+						</div>
+						<div class="col-6 border-0">
+							<span class="badge p-2 border w-100 bg-danger ">@advertise.Weight Kg</span>
 						</div>
 						<div class="col-12 pt-2" style="font-size:13px; text-align:justify">
 							<p> @Html.Raw(advertise.Description)</p>

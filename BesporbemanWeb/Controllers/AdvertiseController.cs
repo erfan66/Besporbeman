@@ -18,5 +18,13 @@ namespace BesporbemanWeb.Controllers
             var advertiseList = _unitOfWork.Advertise.GetAll(includeProperties:"Kind,Material"); 
             return Json(new {data = advertiseList});
         }
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var objFromDb = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id);
+            _unitOfWork.Advertise.Remove(objFromDb);
+            _unitOfWork.Save();
+            return Json(new { success = true, message = "Delete Successful." });
+        }
     }
 }
