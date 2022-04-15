@@ -17,7 +17,7 @@ namespace BesporbemanWeb.Pages.Customer.Home
         }
         public void OnGet()
         {
-            AdvertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material");
+            AdvertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Country,City");
             KindList = _unitOfWork.Kind.GetAll();
         }
     }
