@@ -10,5 +10,6 @@ namespace BMDataAccess.Repository.IRepository
     public interface IAdvertiseRepository:IRepository<Advertise>
     {
         void Update(Advertise advertise);
+        void UpdateStatus(int id, string status);
     }
 }

@@ -20,5 +20,14 @@ namespace BMDataAccess.Repository
         {
             _db.Advertise.Update(advertise);
         }
+
+        public void UpdateStatus(int id, string status)
+        {
+            var adFromDb = _db.Advertise.FirstOrDefault(x => x.Id == id);
+            if (adFromDb!=null)
+            {
+                adFromDb.Status = status;
+            }
+        }
     }
 }

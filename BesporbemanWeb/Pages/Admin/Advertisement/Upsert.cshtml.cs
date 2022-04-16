@@ -54,27 +54,35 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
         {
 
             //Status
-            if (Advertise.ValidityDate < DateTime.Now && Advertise.Status != SD.InValid)
+            if (Advertise.Id!=0)
             {
-                Advertise.Status = SD.InValid;
-                _unitOfWork.Advertise.Update(Advertise);
+                if (Advertise.ValidityDate < DateTime.Now)
+                {
+                    Advertise.Status = SD.InValid;
+                    _unitOfWork.Advertise.Update(Advertise);
+                    
+                }
+                else
+                {
+                    Advertise.Status = SD.Valid;
+                    _unitOfWork.Advertise.Update(Advertise);
+                }
                 _unitOfWork.Save();
             }
-            else
+            else if (Advertise.Id==0)
             {
-                Advertise.Status = SD.Valid;
-                _unitOfWork.Advertise.Update(Advertise);
+                if (Advertise.ValidityDate<DateTime.Now)
+                {
+                    Advertise.Status = SD.InValid;
+                    _unitOfWork.Advertise.Add(Advertise);
+                }
+                else
+                {
+                    Advertise.Status = SD.Valid;
+                    _unitOfWork.Advertise.Add(Advertise);
+                }
                 _unitOfWork.Save();
             }
-
-            if (Advertise.Id==0)
-            {
-                _unitOfWork.Advertise.Add(Advertise);
-                _unitOfWork.Save();
-            }
-            _unitOfWork.Advertise.Update(Advertise);
-            _unitOfWork.Save();
-
             
             return RedirectToPage("./Index");
         }
