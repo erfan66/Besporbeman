@@ -52,17 +52,19 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
         }
         public async Task<IActionResult> OnPost()
         {
+
             //Status
             if (Advertise.ValidityDate < DateTime.Now && Advertise.Status != SD.InValid)
             {
                 Advertise.Status = SD.InValid;
                 _unitOfWork.Advertise.Update(Advertise);
-
+                _unitOfWork.Save();
             }
             else
             {
                 Advertise.Status = SD.Valid;
                 _unitOfWork.Advertise.Update(Advertise);
+                _unitOfWork.Save();
             }
 
             if (Advertise.Id==0)

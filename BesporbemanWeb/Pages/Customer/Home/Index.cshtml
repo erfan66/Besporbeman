@@ -1,10 +1,11 @@
 ﻿@page
 @model BesporbemanWeb.Pages.Customer.Home.IndexModel
 
+<html >
+
+</html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -79,8 +80,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <span class="text-primary">Count :</span>
-                                    <h5 class="badge p-2 border w-10 bg-light">@advertise.Count</h5>
+                                    
                                     <div class="d-flex flex-row">
                                         <div class="text-danger mb-1 me-2">
                                             <i class="fa fa-star"></i>
@@ -88,7 +88,7 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                         </div>
-                                        <span class="badge p-2 border w-100 bg-warning">Remaining deadline: @((advertise.ValidityDate-advertise.DateOfAdvertise).Days) Day(s)</span>
+                                        <span class="badge p-2 border w-100 bg-warning"><i class="bi bi-bell"></i> @((advertise.ValidityDate-advertise.DateOfAdvertise).Days) Day(s)</span>
                                     </div>
                                     <div class="mt-1 mb-0 text-muted small text-center pt-2">
                                         <span class="badge p-2 border w-25 bg-danger">@advertise.Kind.Type</span>
@@ -99,21 +99,22 @@
                                     </div>
                                     
                                     <div class="mb-2 text-muted small pt-3">
-                                        <span class="text-primary">From :</span>
+                                        <span class="text-primary">From <i class="bi bi-geo-alt-fill"></i><i class="bi bi-arrow-90deg-up"></i></span>
                                         <span class="badge p-2 border w-25 bg-primary">@advertise.Country.Name</span>
-                                        <span class="text-primary"> • </span>
                                         <span class="badge p-2 border w-25 bg-secondary">@advertise.City.Name<br /></span>
                                     </div>
                                     <div class="mb-2 text-muted small">
-                                        <span class="text-primary">To :</span>
+                                        <span class="text-primary">To <i class="bi bi-geo-alt-fill"></i><i class="bi bi-arrow-90deg-down"></i></span>
                                         <span class="badge p-2 border w-25 bg-primary">@advertise.Country.Name</span>
-                                        <span class="text-primary"> • </span>
                                         <span class="badge p-2 border w-25 bg-secondary">@advertise.City.Name<br /></span>
                                     </div>
+                                    <div class="mb-2 text-muted">
+                                       <span class="text-primary"><i class="bi bi-bag-plus"></i> Count</span>
+                                       <span class="badge p-2 border w-15 bg-light">@advertise.Count</span>
+                                    </div>
                                     <p class="text-truncate mb-4 mb-md-4 ">
-                                       <span class="text-primary">Description :</span>
-                                       <span class="badge p-2 border w-15 bg-light">@(@advertise.Description!=null?"Yes":"No")<br /></span>
-                                       
+                                       <span class="text-primary"><i class="bi bi-text-left"></i> Description </span>
+                                       <span class="badge p-2 border w-15 bg-light">@(@advertise.Description!=null?"Yes":"No")</span>
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
@@ -122,7 +123,7 @@
                                     </div>
                                     <hr/>
                                     
-                                    <h6 class="text-success fw-bold">@advertise.DateOfAdvertise</h6>
+                                    <h6 class="text-success fw-bold"><i class="bi bi-calendar3"></i> @advertise.DateOfAdvertise</h6>
                                     <br />
                                     <div class="d-flex flex-column mt-4">
                                         <button class="btn btn-outline-primary btn-danger" disabled type="button">Status: @advertise.Status</button>
@@ -143,7 +144,11 @@
 </body>
 
 
-
+@section Scripts{
+    @{
+        <partial name="_HomepagePartial"/>
+    }
+}
 
 
 

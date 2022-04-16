@@ -15,10 +15,10 @@ namespace BesporbemanWeb.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var advertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Country,City"); 
-            return Json(new {data = advertiseList});
+            var advertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Country,City");
+            return Json(new { data = advertiseList });
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             var objFromDb = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id);

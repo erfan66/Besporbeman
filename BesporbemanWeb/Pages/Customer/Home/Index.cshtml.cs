@@ -1,14 +1,17 @@
 using BMDataAccess.Repository.IRepository;
 using BMModel;
 using BMModel.Categories;
+using BMUtility;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BesporbemanWeb.Pages.Customer.Home
 {
+    [BindProperties]
     public class IndexModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;
+        public Advertise Advertise { get; set; }
         public IEnumerable<Advertise> AdvertiseList { get; set; }
         public IEnumerable<Kind> KindList { get; set; }
         public IndexModel(IUnitOfWork unitOfWork)
@@ -20,5 +23,6 @@ namespace BesporbemanWeb.Pages.Customer.Home
             AdvertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Country,City");
             KindList = _unitOfWork.Kind.GetAll();
         }
+        
     }
 }

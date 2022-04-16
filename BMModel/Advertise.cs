@@ -15,7 +15,9 @@ namespace BMModel
     {
         public Advertise()
         {
+            DateOfAdvertise = DateTime.Now;
             ValidityDate = DateTime.Now;
+            Count = 1;
         }
         [Key]
         public int Id { get; set; }
@@ -59,7 +61,7 @@ namespace BMModel
         public Country Country { get; set; }
         [Required]
         [Display(Name ="Date of Advertise")]
-        public DateTime DateOfAdvertise { get; set; } = DateTime.Now;
+        public DateTime DateOfAdvertise { get; set; }
         [Required]
         [Display(Name ="Validity Date")]
         public DateTime ValidityDate { get; set; }
