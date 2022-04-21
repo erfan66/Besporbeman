@@ -9,7 +9,7 @@ namespace BMModel.ViewModel
 {
     public class AreaVM
     {
-        public City city { get; set; }
-        public Country Country { get; set; }
+        public Origin Origin { get; set; }
+        public Destination Destination { get; set; }
     }
 }

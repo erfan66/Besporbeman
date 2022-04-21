@@ -19,7 +19,7 @@ namespace BesporbemanWeb.Pages.Admin.Categories.Materials
         }
         public async Task<IActionResult> OnPost()
         {
-           
+
             if (ModelState.IsValid)
             {
                 _unitOfWork.Material.Add(Material);

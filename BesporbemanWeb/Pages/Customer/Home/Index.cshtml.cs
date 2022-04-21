@@ -20,10 +20,11 @@ namespace BesporbemanWeb.Pages.Customer.Home
         }
         public void OnGet()
         {
-            AdvertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Country,City",
-                orderby:x=>x.OrderByDescending(z=> z.DateOfAdvertise));
+            AdvertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Origin,Destination," +
+                "Origin.City,Origin.Country,Destination.City,Destination.Country",
+                orderby: x => x.OrderByDescending(z => z.DateOfAdvertise));
             KindList = _unitOfWork.Kind.GetAll();
         }
-        
+
     }
 }

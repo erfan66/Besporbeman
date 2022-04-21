@@ -14,8 +14,10 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
         public Advertise Advertise { get; set; }
         public IEnumerable<SelectListItem> KindList { get; set; }
         public IEnumerable<SelectListItem> MaterialList { get; set; }
-        public IEnumerable<SelectListItem> Citieslist { get; set; }
-        public IEnumerable<SelectListItem> CountriesList { get; set; }
+        public IEnumerable<SelectListItem> OriginCitieslist { get; set; }
+        public IEnumerable<SelectListItem> OriginCountriesList { get; set; }
+        public IEnumerable<SelectListItem> DestinationCitieslist { get; set; }
+        public IEnumerable<SelectListItem> DestinationCountriesList { get; set; }
         public UpsertModel(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -23,7 +25,7 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
         }
         public void OnGet(int? id)
         {
-            if (id!=null)
+            if (id != null)
             {
                 //edit
                 Advertise = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id);
@@ -35,32 +37,41 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
             });
             MaterialList = _unitOfWork.Material.GetAll().Select(c => new SelectListItem()
             {
-                Text=c.Title,
-                Value=c.Id.ToString()
+                Text = c.Title,
+                Value = c.Id.ToString()
             });
-            Citieslist = _unitOfWork.City.GetAll().Select(x => new SelectListItem()
-            {
-                Text=x.Name,
-                Value=x.Id.ToString()
-            });
-            CountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
+            OriginCitieslist = _unitOfWork.City.GetAll().Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()
             });
-
+            OriginCountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+            });
+            DestinationCitieslist = _unitOfWork.City.GetAll().Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+            });
+            DestinationCountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+            });
         }
         public async Task<IActionResult> OnPost()
         {
 
             //Status
-            if (Advertise.Id!=0)
+            if (Advertise.Id != 0)
             {
                 if (Advertise.ValidityDate < DateTime.Now)
                 {
                     Advertise.Status = SD.InValid;
                     _unitOfWork.Advertise.Update(Advertise);
-                    
+
                 }
                 else
                 {
@@ -69,9 +80,9 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
                 }
                 _unitOfWork.Save();
             }
-            else if (Advertise.Id==0)
+            else if (Advertise.Id == 0)
             {
-                if (Advertise.ValidityDate<DateTime.Now)
+                if (Advertise.ValidityDate < DateTime.Now)
                 {
                     Advertise.Status = SD.InValid;
                     _unitOfWork.Advertise.Add(Advertise);
@@ -83,9 +94,9 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
                 }
                 _unitOfWork.Save();
             }
-            
+
             return RedirectToPage("./Index");
         }
-        
+
     }
 }

@@ -20,7 +20,7 @@ namespace BesporbemanWeb.Pages.Admin.Areas.Cities
         }
         public async Task<IActionResult> OnPost()
         {
-           
+
             if (ModelState.IsValid)
             {
                 _unitOfWork.City.Add(City);

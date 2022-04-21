@@ -19,12 +19,16 @@ namespace BMDataAccess.Repository
             Material = new MaterialRepository(_db);
             City = new CityRepository(_db);
             Country = new CountryRepository(_db);
+            Origin = new OriginRepository(_db);
+            Destination = new DestinationRepository(_db);
         }
         public IAdvertiseRepository Advertise { get; private set; }
         public IKindRepository Kind { get; private set; }
         public IMaterialRepository Material { get; private set; }
         public ICityRepository City { get; private set; }
         public ICountryRepository Country { get;private set; }
+        public IOriginRepository Origin { get; private set; }
+        public IDestinationRepository Destination { get; private set; }
         public void Dispose()
         {
             _db.Dispose();

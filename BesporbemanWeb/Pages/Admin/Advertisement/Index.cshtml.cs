@@ -10,7 +10,7 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
     {
         public void OnGet()
         {
-            
+
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using BMModel.Areas;
 using BMModel.Categories;
-using BMModel.Personals;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -37,8 +36,7 @@ namespace BMModel
         [Range(0, 200, ErrorMessage = "Heigh should not exceed 150cm!")]
         [Display(Name = "Height(Cm , Ex: 10,20,30,...)")]
         public double Height { get; set; }
-        [Required]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Required]
         [Display(Name = "Kind")]
         public int KindId { get; set; }
@@ -50,15 +48,13 @@ namespace BMModel
         [ForeignKey("MaterialId")]
         public Material Material { get; set; }
         [Required]
-        [Display(Name ="City")]
-        public int CityId { get; set; }
-        [ForeignKey("CityId")]
-        public City City { get; set; }
+        public int OriginId { get; set; }
+        [ForeignKey("OriginId")]
+        public Origin Origin { get; set; }
         [Required]
-        [Display(Name ="Country")]
-        public int CountryId { get; set; }
-        [ForeignKey("CountryId")]
-        public Country Country { get; set; }
+        public int DestinationId { get; set; }
+        [ForeignKey("DestinationId")]
+        public Destination Destination { get; set; }
         [Required]
         [Display(Name ="Date of Advertise")]
         public DateTime DateOfAdvertise { get; set; }

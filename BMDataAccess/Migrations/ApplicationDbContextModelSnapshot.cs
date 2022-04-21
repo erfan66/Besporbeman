@@ -30,21 +30,17 @@ namespace BMDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Count")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CountryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfAdvertise")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DestinationId")
+                        .HasColumnType("int");
 
                     b.Property<double>("Height")
                         .HasColumnType("float");
@@ -58,7 +54,7 @@ namespace BMDataAccess.Migrations
                     b.Property<int>("MaterialId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SenderId")
+                    b.Property<int>("OriginId")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
@@ -80,15 +76,13 @@ namespace BMDataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CountryId");
+                    b.HasIndex("DestinationId");
 
                     b.HasIndex("KindId");
 
                     b.HasIndex("MaterialId");
 
-                    b.HasIndex("SenderId");
+                    b.HasIndex("OriginId");
 
                     b.ToTable("Advertise");
                 });
@@ -127,6 +121,52 @@ namespace BMDataAccess.Migrations
                     b.ToTable("Country");
                 });
 
+            modelBuilder.Entity("BMModel.Areas.Destination", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("Destination");
+                });
+
+            modelBuilder.Entity("BMModel.Areas.Origin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("Origin");
+                });
+
             modelBuilder.Entity("BMModel.Categories.Kind", b =>
                 {
                     b.Property<int>("Id")
@@ -161,173 +201,11 @@ namespace BMDataAccess.Migrations
                     b.ToTable("Material");
                 });
 
-            modelBuilder.Entity("BMModel.Personals.Receiver", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Alias")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Family")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumberIran")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumberTurkey")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sex")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CountryId");
-
-                    b.ToTable("Receiver");
-                });
-
-            modelBuilder.Entity("BMModel.Personals.Sender", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Alias")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Family")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumberIran")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumberTurkey")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sex")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("CountryId");
-
-                    b.ToTable("Sender");
-                });
-
-            modelBuilder.Entity("BMModel.Transfer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("AdvertiseId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Comments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DestinationCityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DestinationCountryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("OriginCityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OriginCountryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("PickUpTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ReceiverId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AdvertiseId");
-
-                    b.HasIndex("DestinationCityId");
-
-                    b.HasIndex("DestinationCountryId");
-
-                    b.HasIndex("OriginCityId");
-
-                    b.HasIndex("OriginCountryId");
-
-                    b.HasIndex("ReceiverId");
-
-                    b.ToTable("Transfer");
-                });
-
             modelBuilder.Entity("BMModel.Advertise", b =>
                 {
-                    b.HasOne("BMModel.Areas.City", "City")
+                    b.HasOne("BMModel.Areas.Destination", "Destination")
                         .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BMModel.Areas.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("DestinationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -343,24 +221,22 @@ namespace BMDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BMModel.Personals.Sender", "Sender")
+                    b.HasOne("BMModel.Areas.Origin", "Origin")
                         .WithMany()
-                        .HasForeignKey("SenderId")
+                        .HasForeignKey("OriginId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("City");
-
-                    b.Navigation("Country");
+                    b.Navigation("Destination");
 
                     b.Navigation("Kind");
 
                     b.Navigation("Material");
 
-                    b.Navigation("Sender");
+                    b.Navigation("Origin");
                 });
 
-            modelBuilder.Entity("BMModel.Personals.Receiver", b =>
+            modelBuilder.Entity("BMModel.Areas.Destination", b =>
                 {
                     b.HasOne("BMModel.Areas.City", "City")
                         .WithMany()
@@ -379,7 +255,7 @@ namespace BMDataAccess.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("BMModel.Personals.Sender", b =>
+            modelBuilder.Entity("BMModel.Areas.Origin", b =>
                 {
                     b.HasOne("BMModel.Areas.City", "City")
                         .WithMany()
@@ -396,57 +272,6 @@ namespace BMDataAccess.Migrations
                     b.Navigation("City");
 
                     b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("BMModel.Transfer", b =>
-                {
-                    b.HasOne("BMModel.Advertise", "Advertise")
-                        .WithMany()
-                        .HasForeignKey("AdvertiseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BMModel.Areas.City", "DestinationCity")
-                        .WithMany()
-                        .HasForeignKey("DestinationCityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BMModel.Areas.Country", "DestinationCountry")
-                        .WithMany()
-                        .HasForeignKey("DestinationCountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BMModel.Areas.City", "OriginCity")
-                        .WithMany()
-                        .HasForeignKey("OriginCityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BMModel.Areas.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("OriginCountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BMModel.Personals.Receiver", "Receiver")
-                        .WithMany()
-                        .HasForeignKey("ReceiverId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Advertise");
-
-                    b.Navigation("Country");
-
-                    b.Navigation("DestinationCity");
-
-                    b.Navigation("DestinationCountry");
-
-                    b.Navigation("OriginCity");
-
-                    b.Navigation("Receiver");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,6 +13,8 @@ namespace BMDataAccess.Repository.IRepository
         IMaterialRepository Material { get; }
         ICityRepository City { get; }
         ICountryRepository Country { get; }
+        IOriginRepository Origin { get; }
+        IDestinationRepository Destination { get; }
         void Save();
 
     }

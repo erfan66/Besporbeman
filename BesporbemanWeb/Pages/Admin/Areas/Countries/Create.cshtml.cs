@@ -20,7 +20,7 @@ namespace BesporbemanWeb.Pages.Admin.Areas.Countries
         }
         public async Task<IActionResult> OnPost()
         {
-           
+
             if (ModelState.IsValid)
             {
                 _unitOfWork.Country.Add(Country);

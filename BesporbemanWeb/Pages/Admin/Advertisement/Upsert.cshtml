@@ -39,18 +39,32 @@
                     <span asp-validation-for="Advertise.MaterialId" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label asp-for="Advertise.CountryId"></label>
-                    <select asp-for="Advertise.CountryId" asp-items="Model.CountriesList" class="form-select">
+                    <label asp-for="Advertise.Origin.CountryId">Origin Country</label>
+                    <select asp-for="Advertise.Origin.CountryId" asp-items="Model.OriginCountriesList" class="form-select">
                         <option disabled selected>-Select Country</option>
                     </select>
-                    <span asp-validation-for="Advertise.CountryId" class="text-danger"></span>
+                    <span asp-validation-for="Advertise.Origin.CountryId" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label asp-for="Advertise.CityId"></label>
-                    <select asp-for="Advertise.CityId" asp-items="Model.Citieslist" class="form-select">
+                    <label asp-for="Advertise.Origin.CityId">Origin City</label>
+                    <select asp-for="Advertise.Origin.CityId" asp-items="Model.OriginCitieslist" class="form-select">
                         <option disabled selected>-Select City</option>
                     </select>
-                    <span asp-validation-for="Advertise.CityId" class="text-danger"></span>
+                    <span asp-validation-for="Advertise.Origin.CityId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.Destination.CountryId">Destination Country</label>
+                    <select asp-for="Advertise.Destination.CountryId" asp-items="Model.DestinationCountriesList" class="form-select">
+                        <option disabled selected>-Select Country</option>
+                    </select>
+                    <span asp-validation-for="Advertise.Destination.CountryId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Advertise.Destination.CityId">Destination City</label>
+                    <select asp-for="Advertise.Destination.CityId" asp-items="Model.DestinationCitieslist" class="form-select">
+                        <option disabled selected>-Select City</option>
+                    </select>
+                    <span asp-validation-for="Advertise.Destination.CityId" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
                     <label asp-for="Advertise.Weight"></label>
@@ -76,7 +90,6 @@
                 <div class="mb-3">
                     <label asp-for="Advertise.Description"></label>
                     <textarea asp-for="Advertise.Description" class="form-control"></textarea>
-                    <span asp-validation-for="Advertise.Description" class="text-danger"></span>
                 </div>
             </div>
         </div>

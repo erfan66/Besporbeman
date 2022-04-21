@@ -15,7 +15,7 @@ namespace BesporbemanWeb.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var advertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Country,City");
+            var advertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Origin,Destination,Origin.City,Origin.Country,Destination.City,Destination.Country");
             return Json(new { data = advertiseList });
         }
         [HttpDelete("{id}")]

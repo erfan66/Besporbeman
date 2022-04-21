@@ -19,7 +19,7 @@ namespace BesporbemanWeb.Pages.Admin.Categories.Kinds
         }
         public async Task<IActionResult> OnPost()
         {
-           
+
             if (ModelState.IsValid)
             {
                 _unitOfWork.Kind.Add(Kind);
