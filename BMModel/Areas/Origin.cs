@@ -13,10 +13,12 @@ namespace BMModel.Areas
         [Key]
         public int Id { get; set; }
         [Required]
+        [Display(Name ="Origin City")]
         public int CityId { get; set; }
         [ForeignKey("CityId")]
         public City City { get; set; }
         [Required]
+        [Display(Name ="Origin Country")]
         public int CountryId { get; set; }
         [ForeignKey("CountryId")]
         public Country Country { get; set; }

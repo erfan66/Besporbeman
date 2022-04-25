@@ -16,6 +16,7 @@ namespace BMDataAccess.Repository
         {
             _db = db;
         }
+
         public void Update(Advertise advertise)
         {
             _db.Advertise.Update(advertise);

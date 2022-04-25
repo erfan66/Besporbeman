@@ -15,6 +15,8 @@ namespace BesporbemanWeb.Pages.Customer.Home
         public IEnumerable<SelectListItem> OriginCitieslist { get; set; }
         public IEnumerable<SelectListItem> DestinationCitiesList { get; set; }
         public Advertise Advertise { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string Keyword { get; set; }
         public IEnumerable<Advertise> AdvertiseList { get; set; }
         public IEnumerable<Kind> KindList { get; set; }
         public IndexModel(IUnitOfWork unitOfWork)
@@ -28,8 +30,25 @@ namespace BesporbemanWeb.Pages.Customer.Home
                 orderby: x => x.OrderByDescending(z => z.DateOfAdvertise));
             KindList = _unitOfWork.Kind.GetAll();
 
+
             //for searchbox
-            
+            OriginCitieslist = _unitOfWork.City.GetAll().Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+            });
+            DestinationCitiesList = _unitOfWork.City.GetAll().Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+            });
+
+            if (Keyword != null)
+            {
+                AdvertiseList = AdvertiseList.Where(x => x.Title.Contains(Keyword.ToUpper()[0]) ||
+                  x.Kind.Type.Contains(Keyword.ToUpper()[0]) ||
+                  x.Material.Title.Contains(Keyword.ToUpper()[0]));
+            }
         }
 
     }
