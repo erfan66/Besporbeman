@@ -56,9 +56,11 @@ namespace BMModel
         [ForeignKey("DestinationId")]
         public Destination Destination { get; set; }
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name ="Date of Advertise")]
         public DateTime DateOfAdvertise { get; set; }
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name ="Validity Date")]
         public DateTime ValidityDate { get; set; }
         [Required]

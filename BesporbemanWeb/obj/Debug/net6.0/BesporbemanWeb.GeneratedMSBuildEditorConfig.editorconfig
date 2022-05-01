@@ -87,6 +87,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmllc1xNYXRlcmlhbHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Customer/Home/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcSG9tZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/VS2022/Besporbeman/BesporbemanWeb/Pages/Customer/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
