@@ -24,5 +24,6 @@ namespace BMDataAccess.Data
         public DbSet<Kind> Kind { get; set; }
         public DbSet<Material> Material { get; set; }
         public DbSet<Advertise> Advertise { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
     }
 }
