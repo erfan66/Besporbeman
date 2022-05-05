@@ -2,58 +2,58 @@
 @model BesporbemanWeb.Pages.Customer.Home.IndexModel
 
 
-    <div>
-        <!-- Header Start -->
-<div class="container-fluid header bg-white p-3">
-    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-        <div class="col-md-6 p-5 mt-lg-5">
-            <h1 class="display-5 mb-4">Find <span class="text-info">The Best Person</span> To Send Any Good To Your Family Or Friends!</h1>
-            <p class="mb-4 pb-2">
-                Vero elitr justo clita lorem. Ipsum dolor at sed stet
-                sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.
-            </p>
-            <a href="" class="btn btn-primary py-3 px-5 me-3">Get Started</a>
-        </div>
-        <div class="col-md-6">
-            <div class="container">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div>
+    <!-- Header Start -->
+    <div class="container-fluid header bg-white p-3">
+        <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+            <div class="col-md-6 p-5 mt-lg-5">
+                <h1 class="display-5 mb-4">Find <span class="text-info">The Best Person</span> To Send Any Good To Your Family Or Friends!</h1>
+                <p class="mb-4 pb-2">
+                    Vero elitr justo clita lorem. Ipsum dolor at sed stet
+                    sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.
+                </p>
+                <a href="" class="btn btn-primary py-3 px-5 me-3">Get Started</a>
+            </div>
+            <div class="col-md-6">
+                <div class="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
 
-                        <div class="item active">
-                            <img src="https://iaftm.tmgrup.com.tr/fbb6e0/633/358/0/0/940/531?u=https://iftm.tmgrup.com.tr/2022/01/20/transfer-donemi-ne-zaman-bitiyor-2022-ara-transfer-donemi-bitis-tarihi-1642682755896.jpg" alt="Transfer" height="100" width="600">
+                            <div class="item active">
+                                <img src="https://iaftm.tmgrup.com.tr/fbb6e0/633/358/0/0/940/531?u=https://iftm.tmgrup.com.tr/2022/01/20/transfer-donemi-ne-zaman-bitiyor-2022-ara-transfer-donemi-bitis-tarihi-1642682755896.jpg" alt="Transfer" height="100" width="600">
+                            </div>
+
+                            <div class="item">
+                                <img src="https://cdn.ntvspor.net/a8f4775994a64fff9ce1da5e49d24cfb.jpg?mode=crop&w=940&h=626" alt="Chicago" height="100" width="600">
+                            </div>
+
+                            <div class="item">
+                                <img src="https://exchangerateiq.com/Riq/images/posts/posts_image/1593762776moneyfactor.jpg" alt="New York" height="100" width="600">
+                            </div>
+
                         </div>
 
-                        <div class="item">
-                            <img src="https://cdn.ntvspor.net/a8f4775994a64fff9ce1da5e49d24cfb.jpg?mode=crop&w=940&h=626" alt="Chicago" height="100" width="600">
-                        </div>
-
-                        <div class="item">
-                            <img src="https://exchangerateiq.com/Riq/images/posts/posts_image/1593762776moneyfactor.jpg" alt="New York" height="100" width="600">
-                        </div>
-
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Search Start -->
+    <!-- Search Start -->
 
-<form method="get">
-    <div class="container bg-primary my-5 p-2">
+    <form method="get">
+        <div class="container bg-primary my-5 p-2">
             <div class="container">
                 <div class="row g-2">
                     <div class="col-md-10">
@@ -61,7 +61,7 @@
                             <div class="col-md-4">
                                 <input asp-for=Keyword class="form-control border-0 py-3" placeholder="Search Keyword">
                             </div>
-                            
+
                             <div class="col-md-4">
                                 <select asp-for="OrgCity" asp-items="Model.OriginCitieslist" class="form-select border-0 py-3">
                                     <option disabled selected> - Origin City - </option>
@@ -80,81 +80,82 @@
                 </div>
             </div>
         </div>
-</form>
-        
-        <!-- Search End -->
-@foreach (var advertise in Model.AdvertiseList)
-{
-    <section>
-        <div class="container py-5">
-            <div class="row justify-content-center mb-3">
-                <div class="col-md-12 col-xl-10">
-                    <div class="card shadow-0 border rounded-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                                    <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
-                                         class="w-100" />
-                                        <a href="#!">
-                                            <div class="hover-overlay">
-                                                <div class="mask"
-                                                 style="background-color: rgba(253, 253, 253, 0.15);"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-6">
+    </form>
 
-                                    <div class="d-flex flex-row">
-                                        <div class="text-danger mb-1 me-2">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+    <!-- Search End -->
+    @foreach (var advertise in Model.AdvertiseList)
+    {
+        <section>
+            <div class="container py-5">
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-12 col-xl-10">
+                        <div class="card shadow-0 border rounded-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                        <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
+                                             class="w-100" />
+                                            <a href="#!">
+                                                <div class="hover-overlay">
+                                                    <div class="mask"
+                                                     style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                                </div>
+                                            </a>
                                         </div>
-                                        <span class="badge p-2 border w-100 bg-warning"><i class="bi bi-bell"></i> @((advertise.ValidityDate-advertise.DateOfAdvertise).Days) Day(s)</span>
                                     </div>
-                                    <div class="mt-1 mb-0 text-muted small text-center pt-2">
-                                        <span class="badge p-2 border w-25 bg-danger">@advertise.Kind.Type</span>
-                                        <span class="text-primary"> • </span>
-                                        <span class="badge p-2 border w-25 bg-info">@advertise.Material.Title</span>
-                                        <span class="text-primary"> • </span>
-                                        <span class="badge p-2 border w-25 bg-success">@advertise.Weight Kg<br /></span>
-                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-xl-6">
 
-                                    <div class="mb-2 text-muted small pt-3">
-                                        <span class="text-primary">From <i class="bi bi-geo-alt-fill"></i><i class="bi bi-arrow-90deg-up"></i></span>
-                                        <span class="badge p-2 border w-25 bg-primary">@advertise.Origin.Country.Name</span>
-                                        <span class="badge p-2 border w-25 bg-secondary">@advertise.Origin.City.Name<br /></span>
-                                    </div>
-                                    <div class="mb-2 text-muted small">
-                                        <span class="text-primary">To <i class="bi bi-geo-alt-fill"></i><i class="bi bi-arrow-90deg-down"></i></span>
-                                        <span class="badge p-2 border w-25 bg-primary">@advertise.Destination.Country.Name</span>
-                                        <span class="badge p-2 border w-25 bg-secondary">@advertise.Destination.City.Name<br /></span>
-                                    </div>
-                                    <div class="mb-2 text-muted">
-                                        <span class="text-primary"><i class="bi bi-bag-plus"></i> Count</span>
-                                        <span class="badge p-2 border w-15 bg-light">@advertise.Count</span>
-                                    </div>
-                                    <p class="text-truncate mb-4 mb-md-4 ">
-                                        <span class="text-primary"><i class="bi bi-text-left"></i> Description </span>
-                                        <span class="badge p-2 border w-15 bg-light">@(@advertise.Description!=null?"Yes":"No")</span>
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                                    <div class="d-flex flex-row align-items-center mb-1">
-                                        <h4 class="mb-1 me-1 fw-bold">@advertise.Title</h4>
-                                    </div>
-                                    <hr />
+                                        <div class="d-flex flex-row">
+                                            <div class="text-danger mb-1 me-2">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <span class="badge p-2 border w-100 bg-warning"><i class="bi bi-bell"></i> @((advertise.ValidityDate-advertise.DateOfAdvertise).Days) Day(s)</span>
+                                        </div>
+                                        <div class="mt-1 mb-0 text-muted small text-center pt-2">
+                                            <span class="badge p-2 border w-25 bg-danger">@advertise.Kind.Type</span>
+                                            <span class="text-primary"> • </span>
+                                            <span class="badge p-2 border w-25 bg-info">@advertise.Material.Title</span>
+                                            <span class="text-primary"> • </span>
+                                            <span class="badge p-2 border w-25 bg-success">@advertise.Weight Kg<br /></span>
+                                        </div>
 
-                                    <h6 class="text-success fw-bold"><i class="bi bi-calendar3"></i> @advertise.DateOfAdvertise</h6>
-                                    <br />
-                                    <div class="d-flex flex-column mt-4">
-                                        <button class="btn btn-outline-primary btn-danger" disabled type="button">Status: @advertise.Status</button>
+                                        <div class="mb-2 text-muted small pt-3">
+                                            <span class="text-primary">From <i class="bi bi-geo-alt-fill"></i><i class="bi bi-arrow-90deg-up"></i></span>
+                                            <span class="badge p-2 border w-25 bg-primary">@advertise.Origin.Country.Name</span>
+                                            <span class="badge p-2 border w-25 bg-secondary">@advertise.Origin.City.Name<br /></span>
+                                        </div>
+                                        <div class="mb-2 text-muted small">
+                                            <span class="text-primary">To <i class="bi bi-geo-alt-fill"></i><i class="bi bi-arrow-90deg-down"></i></span>
+                                            <span class="badge p-2 border w-25 bg-primary">@advertise.Destination.Country.Name</span>
+                                            <span class="badge p-2 border w-25 bg-secondary">@advertise.Destination.City.Name<br /></span>
+                                        </div>
+                                        <div class="mb-2 text-muted">
+                                            <span class="text-primary"><i class="bi bi-bag-plus"></i> Count</span>
+                                            <span class="badge p-2 border w-15 bg-light">@advertise.Count</span>
+                                        </div>
+                                        <p class="text-truncate mb-4 mb-md-4 ">
+                                            <span class="text-primary"><i class="bi bi-text-left"></i> Description </span>
+                                            <span class="badge p-2 border w-15 bg-light">@(@advertise.Description!=null?"Yes":"No")</span>
+                                        </p>
                                     </div>
-                                    <div class="d-flex flex-column mt-4">
-                                        <a asp-page="Details" asp-route-id="@advertise.Id" class="btn btn-primary btn-sm" type="button">Details</a>
+                                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                        <div class="d-flex flex-row align-items-center mb-1">
+                                            <h4 class="mb-1 me-1 fw-bold">@advertise.Title</h4>
+                                        </div>
+                                        <hr />
+
+                                        <h6 class="text-success fw-bold"><i class="bi bi-calendar3"></i> @advertise.DateOfAdvertise</h6>
+                                        <br />
+                                        <div class="d-flex flex-column mt-4">
+                                            <button class="btn btn-outline-primary btn-danger" disabled type="button">Status: @advertise.Status</button>
+                                        </div>
+                                        <div class="d-flex flex-column mt-4">
+                                            <a asp-page="Details" asp-route-id="@advertise.Id" class="btn btn-primary btn-sm" type="button">Details</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -162,11 +163,10 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-    </section>
-}
-    </div>
+        </section>
+    }
+</div>
 <br />
 <br />
 <br />
