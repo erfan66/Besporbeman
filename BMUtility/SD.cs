@@ -11,6 +11,8 @@ namespace BMUtility
 		public const string ManagerRole = "Manager";
 		public const string CustomerRole = "Customer";
 
+
+
 		public const string StatusPending = "Pending_Payment";
 		public const string StatusSubmitted = "Submitted_PaymentApproved";
 		public const string StatusRejected = "Rejected_Payment";
@@ -23,7 +25,7 @@ namespace BMUtility
 
 		//Advertise
 		public const string Valid = "Is Valid";
-		public const string InValid = "Is not Valid";
+		public const string InValid = "Expired";
 
 	}
 }
