@@ -1,10 +1,13 @@
 using BMDataAccess.Repository.IRepository;
 using BMModel.Categories;
+using BMUtility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BesporbemanWeb.Pages.Admin.Categories.Kinds
 {
+    [Authorize(Roles = SD.ManagerRole)]
     public class IndexModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;

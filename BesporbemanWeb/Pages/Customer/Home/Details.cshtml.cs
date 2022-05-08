@@ -1,10 +1,12 @@
 using BMDataAccess.Repository.IRepository;
 using BMModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BesporbemanWeb.Pages.Customer.Home
 {
+    [Authorize]
     public class DetailsModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;

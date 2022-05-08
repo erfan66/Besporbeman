@@ -1,11 +1,14 @@
 using BMDataAccess.Repository.IRepository;
 using BMModel.Areas;
 using BMModel.Categories;
+using BMUtility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BesporbemanWeb.Pages.Admin.Locations.Cities
 {
+    [Authorize(Roles = SD.ManagerRole)]
     public class IndexModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;
