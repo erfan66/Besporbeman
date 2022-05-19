@@ -53,22 +53,22 @@
     <!-- Search Start -->
 
     <form method="get">
-        <div class="container bg-primary my-5 p-2">
+        <div class="container-fluid mb-5">
             <div class="container">
-                <div class="row g-2">
+                <div class="row g-1">
                     <div class="col-md-10">
                         <div class="row g-2">
                             <div class="col-md-4">
-                                <input asp-for=Keyword class="form-control border-0 py-3" placeholder="Search Keyword">
+                                <input type="text" asp-for="Keyword" class="form-control border-1 py-3 h-100" placeholder="Search Keyword">
                             </div>
 
                             <div class="col-md-4">
-                                <select asp-for="OrgCity" asp-items="Model.OriginCitieslist" class="form-select border-0 py-3">
+                                <select asp-for="OrgCity" asp-items="Model.OriginCitieslist" class="form-select border-1 py-3">
                                     <option disabled selected> - Origin City - </option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <select asp-for="DesCity" asp-items="Model.DestinationCitiesList" class="form-select border-0 py-3">
+                                <select asp-for="DesCity" asp-items="Model.DestinationCitiesList" class="form-select border-1 py-3">
                                     <option disabled selected> - Destination City - </option>
                                 </select>
                             </div>
@@ -170,12 +170,6 @@
 <br />
 <br />
 <br />
-
-@section Scripts{
-    @{
-    <partial name="_HomepagePartial" />
-    }
-}
 
 
 

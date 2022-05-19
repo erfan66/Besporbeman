@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BesporbemanWeb.Pages.Admin.Locations.Countries
 {
-    [Authorize(Roles = SD.ManagerRole)]
     public class IndexModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;

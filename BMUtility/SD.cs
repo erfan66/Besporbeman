@@ -27,5 +27,10 @@ namespace BMUtility
 		public const string Valid = "Is Valid";
 		public const string InValid = "Expired";
 
+		//Gender
+		public const string Man = "Man";
+		public const string Woman = "Woman";
+
+
 	}
 }

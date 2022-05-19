@@ -23,7 +23,8 @@ namespace BMDataAccess.Data
         public DbSet<Destination> Destination { get; set; }
         public DbSet<Kind> Kind { get; set; }
         public DbSet<Material> Material { get; set; }
-        public DbSet<Advertise> Advertise { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<Advertise> Advertise { get; set; }
+
     }
 }

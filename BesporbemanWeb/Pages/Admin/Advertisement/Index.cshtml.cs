@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BesporbemanWeb.Pages.Admin.Advertisement
 {
-    [Authorize(Roles =SD.ManagerRole)]
     public class IndexModel : PageModel
     {
         public void OnGet()

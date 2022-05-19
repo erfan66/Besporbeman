@@ -15,6 +15,7 @@ namespace BMDataAccess.Repository.IRepository
         ICountryRepository Country { get; }
         IOriginRepository Origin { get; }
         IDestinationRepository Destination { get; }
+        IApplicationUserRepository ApplicationUser { get; }
         void Save();
 
     }

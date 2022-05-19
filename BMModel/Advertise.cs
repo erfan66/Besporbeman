@@ -1,5 +1,6 @@
 ﻿using BMModel.Areas;
 using BMModel.Categories;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,6 +21,7 @@ namespace BMModel
         }
         [Key]
         public int Id { get; set; }
+        [Required]
         [Display(Name = "Title(Name of Goods)")]
         public string Title { get; set; }
         public int Count { get; set; }
@@ -65,5 +67,13 @@ namespace BMModel
         public DateTime ValidityDate { get; set; }
         [Required]
         public string Status { get; set; }
+        [Required]
+        public string SenderName { get; set; }
+        [Required]
+        public string SenderPhoneNumber { get; set; }
+        public string SenderAddress { get; set; }
+        [EmailAddress]
+        public string SenderEmail { get; set; }
+
     }
 }

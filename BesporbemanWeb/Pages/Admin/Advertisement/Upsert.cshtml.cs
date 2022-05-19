@@ -4,6 +4,7 @@ using BMUtility;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace BesporbemanWeb.Pages.Admin.Advertisement
 {
@@ -12,6 +13,7 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
     {
         private readonly IUnitOfWork _unitOfWork;
         public Advertise Advertise { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
         public IEnumerable<SelectListItem> KindList { get; set; }
         public IEnumerable<SelectListItem> MaterialList { get; set; }
         public IEnumerable<SelectListItem> OriginCitieslist { get; set; }
@@ -25,11 +27,19 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
         }
         public void OnGet(int? id)
         {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            //Advertise.UserId = claim.Value;
             if (id != null)
             {
                 //edit
+                
                 Advertise = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id);
+                
+
             }
+
+            ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(x => x.Id == claim.Value);
             KindList = _unitOfWork.Kind.GetAll().Select(c => new SelectListItem()
             {
                 Text = c.Type,
