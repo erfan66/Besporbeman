@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BMDataAccess.Migrations
 {
-    public partial class addCityCountryOriginDestinationKindMaterialApplicationUserAdvertiseIdentityToDb : Migration
+    public partial class addCityCountryOriginDestinationKindMaterialApplicationUserAdvertiseToDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -280,6 +280,7 @@ namespace BMDataAccess.Migrations
                     MaterialId = table.Column<int>(type: "int", nullable: false),
                     OriginId = table.Column<int>(type: "int", nullable: false),
                     DestinationId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DateOfAdvertise = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ValidityDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -291,6 +292,12 @@ namespace BMDataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Advertise", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Advertise_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Advertise_Destination_DestinationId",
                         column: x => x.DestinationId,
@@ -336,6 +343,11 @@ namespace BMDataAccess.Migrations
                 name: "IX_Advertise_OriginId",
                 table: "Advertise",
                 column: "OriginId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Advertise_UserId",
+                table: "Advertise",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

@@ -21,14 +21,18 @@ namespace BesporbemanWeb.Pages.Admin.Locations.Cities
         }
         public async Task<IActionResult> OnPost()
         {
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.City.Remove(City);
-                _unitOfWork.Save();
-                TempData["success"] = "City Deleted Successfully";
-                return RedirectToPage("Index");
-            }
-            return Page();
+            //if (ModelState.IsValid)
+            //{
+            //    _unitOfWork.City.Remove(City);
+            //    _unitOfWork.Save();
+            //    TempData["success"] = "City Deleted Successfully";
+            //    return RedirectToPage("Index");
+            //}
+            //return Page();
+            _unitOfWork.City.Remove(City);
+            _unitOfWork.Save();
+            TempData["success"] = "City Deleted Successfully";
+            return RedirectToPage("Index");
         }
     }
 }

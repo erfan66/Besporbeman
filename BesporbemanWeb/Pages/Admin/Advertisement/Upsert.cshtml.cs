@@ -17,9 +17,9 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
         public IEnumerable<SelectListItem> KindList { get; set; }
         public IEnumerable<SelectListItem> MaterialList { get; set; }
         public IEnumerable<SelectListItem> OriginCitieslist { get; set; }
-        public IEnumerable<SelectListItem> OriginCountriesList { get; set; }
+        //public IEnumerable<SelectListItem> OriginCountriesList { get; set; }
         public IEnumerable<SelectListItem> DestinationCitieslist { get; set; }
-        public IEnumerable<SelectListItem> DestinationCountriesList { get; set; }
+        //public IEnumerable<SelectListItem> DestinationCountriesList { get; set; }
         public UpsertModel(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -27,19 +27,20 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
         }
         public void OnGet(int? id)
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            //Advertise.UserId = claim.Value;
             if (id != null)
             {
                 //edit
-                
                 Advertise = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id);
-                
-
             }
 
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
             ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(x => x.Id == claim.Value);
+            Advertise.SenderName = ApplicationUser.LastName;
+            Advertise.SenderEmail = ApplicationUser.Email;
+            Advertise.SenderPhoneNumber = ApplicationUser.PhoneNumber;
+
             KindList = _unitOfWork.Kind.GetAll().Select(c => new SelectListItem()
             {
                 Text = c.Type,
@@ -50,12 +51,13 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
                 Text = c.Title,
                 Value = c.Id.ToString()
             });
+
+            //OriginCountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
+            //{
+            //    Text = x.Name,
+            //    Value = x.Id.ToString()
+            //});
             OriginCitieslist = _unitOfWork.City.GetAll().Select(x => new SelectListItem()
-            {
-                Text = x.Name,
-                Value = x.Id.ToString()
-            });
-            OriginCountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
             {
                 Text = x.Name,
                 Value = x.Id.ToString()
@@ -65,14 +67,22 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
                 Text = x.Name,
                 Value = x.Id.ToString()
             });
-            DestinationCountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
-            {
-                Text = x.Name,
-                Value = x.Id.ToString()
-            });
+            //DestinationCountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
+            //{
+            //    Text = x.Name,
+            //    Value = x.Id.ToString()
+            //});
         }
         public async Task<IActionResult> OnPost()
         {
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(x => x.Id == claim.Value);
+            ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(x => x.Id == claim.Value);
+            Advertise.SenderName = ApplicationUser.LastName;
+            Advertise.SenderEmail = ApplicationUser.Email;
+            Advertise.SenderPhoneNumber = ApplicationUser.PhoneNumber;
 
             //Status
             if (Advertise.Id != 0)
@@ -92,6 +102,7 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
             }
             else if (Advertise.Id == 0)
             {
+
                 if (Advertise.ValidityDate < DateTime.Now)
                 {
                     Advertise.Status = SD.InValid;

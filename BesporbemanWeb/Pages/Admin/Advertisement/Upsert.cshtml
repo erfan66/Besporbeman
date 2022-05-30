@@ -1,4 +1,5 @@
 ﻿@page
+@using BMUtility
 @model BesporbemanWeb.Pages.Admin.Advertisement.UpsertModel
 
 <form method="post">
@@ -11,11 +12,21 @@
                 </h2>
                 <hr />
                  <input disabled hidden asp-for="Advertise.Status" class="form-control" />
-                 <input disabled hidden asp-for="ApplicationUser.LastName" class="form-control" />
-                 <input disabled hidden asp-for="ApplicationUser.PhoneNumber" class="form-control" />
                  <div class="form-floating">
                     <input disabled asp-for="Advertise.DateOfAdvertise" type="date" class="form-control" />
                     <label asp-for="Advertise.DateOfAdvertise"></label>
+                </div>
+                <div class="form-floating">
+                    <input disabled asp-for="Advertise.SenderName" class="form-control" />
+                    <label asp-for="Advertise.SenderName"></label>
+                </div>
+                <div class="form-floating">
+                    <input disabled asp-for="Advertise.SenderPhoneNumber" class="form-control" />
+                    <label asp-for="Advertise.SenderPhoneNumber"></label>
+                </div>
+                <div class="form-floating">
+                    <input disabled asp-for="Advertise.SenderEmail" class="form-control" />
+                    <label asp-for="Advertise.SenderEmail"></label>
                 </div>
                 <div class="form-floating">
                     <input asp-for="Advertise.Title" class="form-control" />
@@ -41,25 +52,11 @@
                     <span asp-validation-for="Advertise.MaterialId" class="text-danger"></span>
                 </div>
                 <div class="form-floating">
-                    <select asp-for="Advertise.Origin.CountryId" asp-items="Model.OriginCountriesList" class="form-select">
-                        <option disabled selected>-Select Country</option>
-                    </select>
-                    <label asp-for="Advertise.Origin.CountryId"></label>
-                    <span asp-validation-for="Advertise.Origin.CountryId" class="text-danger"></span>
-                </div>
-                <div class="form-floating">
                     <select asp-for="Advertise.Origin.CityId" asp-items="Model.OriginCitieslist" class="form-select">
                         <option disabled selected>-Select City</option>
                     </select>
                     <label asp-for="Advertise.Origin.CityId"></label>
                     <span asp-validation-for="Advertise.Origin.CityId" class="text-danger"></span>
-                </div>
-                <div class="form-floating">
-                    <select asp-for="Advertise.Destination.CountryId" asp-items="Model.DestinationCountriesList" class="form-select">
-                        <option disabled selected>-Select Country</option>
-                    </select>
-                    <label asp-for="Advertise.Destination.CountryId"></label>
-                    <span asp-validation-for="Advertise.Destination.CountryId" class="text-danger"></span>
                 </div>
                 <div class="form-floating">
                     <select asp-for="Advertise.Destination.CityId" asp-items="Model.DestinationCitieslist" class="form-select">
@@ -84,6 +81,10 @@
                 <div class="form-floating">
                     <input asp-for="Advertise.Height" class="form-control" />
                     <label asp-for="Advertise.Height"></label>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Advertise.SenderAddress" class="form-control" />
+                    <label asp-for="Advertise.SenderAddress"></label>
                 </div>
                 <div class="form-floating">
                     <input asp-for="Advertise.ValidityDate" type="date" class="form-control" />

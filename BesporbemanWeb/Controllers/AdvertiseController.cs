@@ -1,5 +1,7 @@
 ﻿using BMDataAccess.Repository.IRepository;
+using BMUtility;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace BesporbemanWeb.Controllers
 {
@@ -15,7 +17,7 @@ namespace BesporbemanWeb.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var advertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "ApplicationUser,Kind,Material,Origin,Destination,Origin.City,Origin.Country,Destination.City,Destination.Country");
+            var advertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Origin,Destination,Origin.City,Destination.City");
             return Json(new { data = advertiseList });
         }
         [HttpDelete("{id}")]
@@ -26,5 +28,36 @@ namespace BesporbemanWeb.Controllers
             _unitOfWork.Save();
             return Json(new { success = true, message = "Delete Successful." });
         }
+        //[HttpPost("{id}")]
+        //public IActionResult UpdateStatus(int id)
+        //{
+        //    var objFromDb = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id);
+        //    //Status
+        //    if (objFromDb.Id != 0)
+        //    {
+        //        if (objFromDb.ValidityDate < DateTime.Now)
+        //        {
+        //            objFromDb.Status = SD.InValid;
+        //            _unitOfWork.Advertise.Update(objFromDb);
+
+        //        }
+        //        _unitOfWork.Save();
+        //    }
+        //    else if (objFromDb.Id == 0)
+        //    {
+        //        if (objFromDb.ValidityDate < DateTime.Now)
+        //        {
+        //            objFromDb.Status = SD.InValid;
+        //            _unitOfWork.Advertise.Add(objFromDb);
+        //        }
+        //        else
+        //        {
+        //            objFromDb.Status = SD.Valid;
+        //            _unitOfWork.Advertise.Add(objFromDb);
+        //        }
+        //        _unitOfWork.Save();
+        //    }
+        //    return Json(new { success = true });
+        //}
     }
 }

@@ -31,7 +31,7 @@ namespace BesporbemanWeb.Pages.Customer.Home
         public async Task OnGet()
         {
             AdvertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Origin,Destination," +
-                "Origin.City,Origin.Country,Destination.City,Destination.Country",
+                "Origin.City,Destination.City,Origin.City.Country,Destination.City.Country",
                 orderby: x => x.OrderByDescending(z => z.DateOfAdvertise));
 
 

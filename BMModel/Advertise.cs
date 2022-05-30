@@ -67,13 +67,15 @@ namespace BMModel
         public DateTime ValidityDate { get; set; }
         [Required]
         public string Status { get; set; }
-        [Required]
+        [Display(Name = "Last Name")]
         public string SenderName { get; set; }
-        [Required]
-        public string SenderPhoneNumber { get; set; }
+        [Display(Name = "Address")]
         public string SenderAddress { get; set; }
-        [EmailAddress]
+        [Display(Name = "Email")]
         public string SenderEmail { get; set; }
+        [Display(Name = "Phone Number")]
+        public string SenderPhoneNumber { get; set; }
+
 
     }
 }

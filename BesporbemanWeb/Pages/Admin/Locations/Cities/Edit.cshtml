@@ -14,6 +14,13 @@
 			<input asp-for="City.Name" class="form-control" />
 			<span asp-validation-for="City.Name" class="text-danger"></span>
 		</div>
+		<div class="form-floating">
+            <select asp-for="City.CountryId" asp-items="Model.CountriesList" class="form-select">
+                <option disabled selected>-Select Country</option>
+            </select>
+            <label asp-for="City.CountryId"></label>
+            <span asp-validation-for="City.CountryId" class="text-danger"></span>
+        </div>
 		<button type="submit" class="btn btn-primary" style="width:150px;">Update</button>
 		<a asp-page="Index" class="btn btn-secondary"  style="width:150px;"> Back</a>
 	</div>

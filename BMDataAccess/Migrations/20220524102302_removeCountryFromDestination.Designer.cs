@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BMDataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220518104537_addCityCountryOriginDestinationKindMaterialApplicationUserAdvertiseIdentityToDb")]
-    partial class addCityCountryOriginDestinationKindMaterialApplicationUserAdvertiseIdentityToDb
+    [Migration("20220524102302_removeCountryFromDestination")]
+    partial class removeCountryFromDestination
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -83,6 +83,10 @@ namespace BMDataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("ValidityDate")
                         .HasColumnType("datetime2");
 
@@ -102,6 +106,8 @@ namespace BMDataAccess.Migrations
 
                     b.HasIndex("OriginId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Advertise");
                 });
 
@@ -113,11 +119,16 @@ namespace BMDataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("City");
                 });
@@ -150,14 +161,9 @@ namespace BMDataAccess.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
-
-                    b.HasIndex("CountryId");
 
                     b.ToTable("Destination");
                 });
@@ -173,14 +179,9 @@ namespace BMDataAccess.Migrations
                     b.Property<int>("CityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CityId");
-
-                    b.HasIndex("CountryId");
 
                     b.ToTable("Origin");
                 });
@@ -471,6 +472,14 @@ namespace BMDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BMModel.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
                     b.Navigation("Destination");
 
                     b.Navigation("Kind");
@@ -478,6 +487,17 @@ namespace BMDataAccess.Migrations
                     b.Navigation("Material");
 
                     b.Navigation("Origin");
+                });
+
+            modelBuilder.Entity("BMModel.Areas.City", b =>
+                {
+                    b.HasOne("BMModel.Areas.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("BMModel.Areas.Destination", b =>
@@ -488,15 +508,7 @@ namespace BMDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BMModel.Areas.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("City");
-
-                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("BMModel.Areas.Origin", b =>
@@ -507,15 +519,7 @@ namespace BMDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BMModel.Areas.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("City");
-
-                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

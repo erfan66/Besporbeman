@@ -113,6 +113,10 @@ namespace BesporbemanWeb.Areas.Identity.Pages.Account
             [Phone]
             [RegularExpression(@"^\+[0-9]{12}$", ErrorMessage = "Invalid Mobile Number.")]
             public string PhoneNumber { get; set; }
+            [Required]
+            public string Gender { get; set; }
+            [Required]
+            public DateTime DateOfBirth { get; set; }
         }
 
 
@@ -135,6 +139,8 @@ namespace BesporbemanWeb.Areas.Identity.Pages.Account
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
                 user.PhoneNumber = Input.PhoneNumber;
+                user.Gender = Input.Gender;
+                user.DateOfBirth = Input.DateOfBirth;
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (!await _roleManager.RoleExistsAsync(SD.ManagerRole))
                 {
@@ -144,6 +150,12 @@ namespace BesporbemanWeb.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    //var gender = Request.Form["bmGender"].ToString();
+                    //if (gender== SD.Man)
+                    //{
+
+                    //}
+
                     var role = Request.Form["bmRole"].ToString();
                     if (role==SD.ManagerRole)
                     {

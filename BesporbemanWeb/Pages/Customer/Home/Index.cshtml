@@ -1,4 +1,5 @@
 ﻿@page
+@using BMUtility
 @model BesporbemanWeb.Pages.Customer.Home.IndexModel
 
 
@@ -12,7 +13,11 @@
                     Vero elitr justo clita lorem. Ipsum dolor at sed stet
                     sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.
                 </p>
-                <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary py-3 px-5 me-3">Get Started</a>
+                @if (!(User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.CustomerRole)))
+                {
+                    <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary py-3 px-5 me-3">Get Started</a>
+
+                }
             </div>
             <div class="col-md-6">
                 <div class="container">
@@ -125,13 +130,13 @@
 
                                         <div class="mb-2 text-muted small pt-3">
                                             <span class="text-primary">From <i class="bi bi-geo-alt-fill"></i><i class="bi bi-arrow-90deg-up"></i></span>
-                                            <span class="badge p-2 border w-25 bg-primary">@advertise.Origin.Country.Name</span>
-                                            <span class="badge p-2 border w-25 bg-secondary">@advertise.Origin.City.Name<br /></span>
+                                            <span class="badge p-2 border w-25 bg-primary">@advertise.Origin.City.Name</span>
+                                            <span class="badge p-2 border w-25 bg-secondary">@advertise.Origin.City.Country.Name<br /></span>
                                         </div>
                                         <div class="mb-2 text-muted small">
                                             <span class="text-primary">To <i class="bi bi-geo-alt-fill"></i><i class="bi bi-arrow-90deg-down"></i></span>
-                                            <span class="badge p-2 border w-25 bg-primary">@advertise.Destination.Country.Name</span>
-                                            <span class="badge p-2 border w-25 bg-secondary">@advertise.Destination.City.Name<br /></span>
+                                            <span class="badge p-2 border w-25 bg-primary">@advertise.Destination.City.Name</span>
+                                            <span class="badge p-2 border w-25 bg-secondary">@advertise.Destination.City.Country.Name<br /></span>
                                         </div>
                                         <div class="mb-2 text-muted">
                                             <span class="text-primary"><i class="bi bi-bag-plus"></i> Count</span>
@@ -171,103 +176,3 @@
 <br />
 <br />
 
-
-
-
-
-@*<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-
-    <!-- Header -->
-    <div class="row container pb-3 backgroundWhite">
-        @foreach (var advertise in Model.AdvertiseList )
-        {
-            <div class="header">
-                <h2 class="text-success pl-1">@advertise.DateOfAdvertise</h2>
-            </div>
-            <!-- Photo Grid -->
-            <!-- Row 1 -->
-            <div class="card-deck">
-                <div class="card">
-                    <img class="card-img-top" src="http://www.orseu-concours.com/451-615-thickbox/selor-test-de-raisonnement-abstrait-niveau-a.jpg" alt="Company logo">
-                    <div class="card-body">
-                        <h5 class="card-title">@advertise.Title</h5>
-                        <ul class="list-group">
-                            <li class="list-group-item list-group-item-success"><i class="fa fa-briefcase" style="font-size:20px;"></i>Count: @advertise.Count</li>
-                            <li class="list-group-item list-group-item-success"><i class="fa fa-user" style="font-size:20px;"></i>Weight: @advertise.Weight</li>
-                            <li class="list-group-item list-group-item-success"><i class="fa fa-map-marker" style="font-size:20px;"></i>Material: @advertise.Material.Title</li>
-                            <li class="list-group-item list-group-item-success"><i class="fa fa-map-marker" style="font-size:20px;"></i>Material: @advertise.Kind.Type</li>
-                            <li class="list-group-item list-group-item-success"><i class="fa fa-clock-o" style="font-size:20px;"></i>   @advertise.Country.Name</li>
-                            <li class="list-group-item list-group-item-success"><i class="fa fa-inr" style="font-size:20px;"></i>   @advertise.City.Name</li>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-
-</html>*@
-
-
-
-
-
-                        @*<div class="row container pb-3 backgroundWhite">
-                            @foreach (var kind in Model.KindList)
-                            {
-                            <h2 class="text-success pl-1"><b>@kind.Type</b></h2>
-                            <div class="col-12">
-                            <div class="row my-3">
-                            @foreach (var advertise in Model.AdvertiseList.Where(x => x.KindId == kind.Id))
-                            {
-                            <div class="col-lg-4 col-md-6 pb-4 filter">
-                            <div class="card bg-white rounded shadow-sm" style="border:1px solid #222">
-                            <div class="card-body pb-1 row">
-                            <div class="col-6 border-0">
-                            <span class="badge p-2 mb-2 border w-100 bg-dark ">@advertise.DateOfAdvertise</span>
-                            </div>
-                            <hr/>
-                            <div class="col-8 h5">@advertise.Title</div>
-                            <div class="col-4 text-end"><span class="text-info h4">@advertise.Count</span></div>
-                            </div>
-                            <div class="card-body p-1 px-3 row mb-2">
-                            <div class="col-6">
-                            <span class="badge p-2 border w-100 text-dark bg-warning ">@advertise.Kind.Type</span>
-                            </div>
-                            <div class="col-6 border-0">
-                            <span class="badge p-2 border w-100 bg-info ">@advertise.Material.Title</span>
-                            </div>
-                            <div class="col-6 border-0">
-                            <span class="badge p-2 border w-100 bg-danger ">@advertise.Weight Kg</span>
-                            </div>
-                            <hr/>
-                            <div class="col-12 pt-2" style="font-size:13px; text-align:justify">
-                            <p>@Html.Raw(advertise.Description)</p>
-                            </div>
-                            <div class="col-12 p-1">
-                            <a class="btn btn-dark form-control btn-sm p-2" style="height:40px">View Details</a>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            }
-                            </div>
-                            </div>
-                            }
-                            </div>*@

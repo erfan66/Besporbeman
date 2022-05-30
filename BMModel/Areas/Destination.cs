@@ -17,10 +17,5 @@ namespace BMModel.Areas
         public int CityId { get; set; }
         [ForeignKey("CityId")]
         public City City { get; set; }
-        [Required]
-        [Display(Name = "Destination Country")]
-        public int CountryId { get; set; }
-        [ForeignKey("CountryId")]
-        public Country Country { get; set; }
     }
 }
