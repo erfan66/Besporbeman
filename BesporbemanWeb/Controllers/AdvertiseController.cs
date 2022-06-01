@@ -30,7 +30,7 @@ namespace BesporbemanWeb.Controllers
             }
             else if (User.IsInRole(SD.CustomerRole))
             {
-                AdvertiseList = _unitOfWork.Advertise.GetAll(x=> ApplicationUser.Id==claim.Value ,
+                AdvertiseList = _unitOfWork.Advertise.GetAll(filter: x=> x.UserId==claim.Value ,
                     includeProperties: "Kind,Material,Origin,Destination,Origin.City,Destination.City");
             }
             return Json(new { data = AdvertiseList });

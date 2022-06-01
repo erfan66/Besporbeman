@@ -35,7 +35,14 @@
                         @if (User.IsInRole(SD.ManagerRole) || User.IsInRole(SD.CustomerRole))
                         {
                             <li class="nav-item dropdown">
+                                @if(User.IsInRole(SD.ManagerRole))
+                                {
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-shield-lock-fill"></i> Admin</a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-shield-lock-fill"></i> Manage Advertising</a>
+                                }
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" asp-area="" asp-page="/Admin/Advertisement/Index">Advertisement</a>
                                     @if (User.IsInRole(SD.ManagerRole))
