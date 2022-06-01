@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BMDataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220524102302_removeCountryFromDestination")]
-    partial class removeCountryFromDestination
+    [Migration("20220601194552_addCityCountryOriginDestinationKindMaterialApplicationUserAdvertiseToDb")]
+    partial class addCityCountryOriginDestinationKindMaterialApplicationUserAdvertiseToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -1,7 +1,8 @@
 ﻿using BMDataAccess.Repository.IRepository;
+using BMModel;
 using BMUtility;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Security.Claims;
 
 namespace BesporbemanWeb.Controllers
 {
@@ -10,6 +11,8 @@ namespace BesporbemanWeb.Controllers
     public class AdvertiseController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        public IEnumerable<Advertise>? AdvertiseList { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
         public AdvertiseController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -17,8 +20,20 @@ namespace BesporbemanWeb.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var advertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Origin,Destination,Origin.City,Destination.City");
-            return Json(new { data = advertiseList });
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (User.IsInRole(SD.ManagerRole))
+            {
+                AdvertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Origin,Destination,Origin.City,Destination.City");
+
+            }
+            else if (User.IsInRole(SD.CustomerRole))
+            {
+                AdvertiseList = _unitOfWork.Advertise.GetAll(x=> ApplicationUser.Id==claim.Value ,
+                    includeProperties: "Kind,Material,Origin,Destination,Origin.City,Destination.City");
+            }
+            return Json(new { data = AdvertiseList });
         }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

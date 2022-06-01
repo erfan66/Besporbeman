@@ -51,12 +51,6 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
                 Text = c.Title,
                 Value = c.Id.ToString()
             });
-
-            //OriginCountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
-            //{
-            //    Text = x.Name,
-            //    Value = x.Id.ToString()
-            //});
             OriginCitieslist = _unitOfWork.City.GetAll().Select(x => new SelectListItem()
             {
                 Text = x.Name,
@@ -67,11 +61,6 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
                 Text = x.Name,
                 Value = x.Id.ToString()
             });
-            //DestinationCountriesList = _unitOfWork.Country.GetAll().Select(x => new SelectListItem()
-            //{
-            //    Text = x.Name,
-            //    Value = x.Id.ToString()
-            //});
         }
         public async Task<IActionResult> OnPost()
         {
@@ -79,7 +68,7 @@ namespace BesporbemanWeb.Pages.Admin.Advertisement
             var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(x => x.Id == claim.Value);
-            ApplicationUser = _unitOfWork.ApplicationUser.GetFirstOrDefault(x => x.Id == claim.Value);
+            Advertise.UserId = claim.Value;
             Advertise.SenderName = ApplicationUser.LastName;
             Advertise.SenderEmail = ApplicationUser.Email;
             Advertise.SenderPhoneNumber = ApplicationUser.PhoneNumber;

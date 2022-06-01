@@ -58,6 +58,10 @@ namespace BMModel
         [ForeignKey("DestinationId")]
         public Destination Destination { get; set; }
         [Required]
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public ApplicationUser ApplicationUser { get; set; }
+        [Required]
         [DataType(DataType.Date)]
         [Display(Name ="Date of Advertise")]
         public DateTime DateOfAdvertise { get; set; }

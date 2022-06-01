@@ -81,6 +81,10 @@ namespace BMDataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("ValidityDate")
                         .HasColumnType("datetime2");
 
@@ -99,6 +103,8 @@ namespace BMDataAccess.Migrations
                     b.HasIndex("MaterialId");
 
                     b.HasIndex("OriginId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Advertise");
                 });
@@ -463,6 +469,14 @@ namespace BMDataAccess.Migrations
                         .HasForeignKey("OriginId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("BMModel.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("Destination");
 

@@ -54,19 +54,6 @@ namespace BMDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "City",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_City", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Country",
                 columns: table => new
                 {
@@ -212,13 +199,32 @@ namespace BMDataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "City",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CountryId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_City", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_City_Country_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Country",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Destination",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CityId = table.Column<int>(type: "int", nullable: false),
-                    CountryId = table.Column<int>(type: "int", nullable: false)
+                    CityId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -229,12 +235,6 @@ namespace BMDataAccess.Migrations
                         principalTable: "City",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Destination_Country_CountryId",
-                        column: x => x.CountryId,
-                        principalTable: "Country",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -243,8 +243,7 @@ namespace BMDataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CityId = table.Column<int>(type: "int", nullable: false),
-                    CountryId = table.Column<int>(type: "int", nullable: false)
+                    CityId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -253,12 +252,6 @@ namespace BMDataAccess.Migrations
                         name: "FK_Origin_City_CityId",
                         column: x => x.CityId,
                         principalTable: "City",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Origin_Country_CountryId",
-                        column: x => x.CountryId,
-                        principalTable: "Country",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -285,9 +278,9 @@ namespace BMDataAccess.Migrations
                     ValidityDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SenderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SenderPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SenderAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SenderEmail = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    SenderEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SenderPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -389,24 +382,19 @@ namespace BMDataAccess.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_City_CountryId",
+                table: "City",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Destination_CityId",
                 table: "Destination",
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Destination_CountryId",
-                table: "Destination",
-                column: "CountryId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Origin_CityId",
                 table: "Origin",
                 column: "CityId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Origin_CountryId",
-                table: "Origin",
-                column: "CountryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
