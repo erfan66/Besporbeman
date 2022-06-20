@@ -19,7 +19,7 @@ namespace BesporbemanWeb.Pages.Customer.Home
         {
 
             Advertise = _unitOfWork.Advertise.GetFirstOrDefault(x => x.Id == id, includeProperties:
-                "Kind,Material,Origin,Destination,Origin.City,Origin.Country,Destination.City,Destination.Country");
+               "Kind,Material,Origin,Destination,Origin.City,Destination.City,Origin.City.Country,Destination.City.Country");
         }
     }
 }

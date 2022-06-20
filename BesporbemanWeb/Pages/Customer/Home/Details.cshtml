@@ -10,7 +10,7 @@
             </div><!-- / project-info-box -->
 
             <div class="project-info-box">
-                <p><b>Sender:</b> CUPCAKE CO</p>
+                <p><b>Sender:</b> @Model.Advertise.SenderName</p>
                 <p><b>Date:</b> @Model.Advertise.DateOfAdvertise</p>
                 <p><b>Kind:</b> @Model.Advertise.Kind.Type</p>
                 <p><b>Material:</b> @Model.Advertise.Material.Title</p>
@@ -18,17 +18,18 @@
                 <p><b>Width:</b> @(Model.Advertise.Width==0?" Unknown": @Model.Advertise.Width)</p>
                 <p><b>Length:</b> @(Model.Advertise.Length==0?" Unknown": @Model.Advertise.Length)</p>
                 <p><b>Height:</b> @(Model.Advertise.Height==0?" Unknown": @Model.Advertise.Height)</p>
-                @*<p><b>Origin Country:</b> @Model.Advertise.Origin.Country.Name</p>*@
                 <p><b>Origin City:</b> @Model.Advertise.Origin.City.Name</p>
-                @*<p><b>Destination Country:</b> @Model.Advertise.Destination.Country.Name</p>*@
                 <p><b>Destination City:</b> @Model.Advertise.Destination.City.Name</p>
             </div><!-- / project-info-box -->
         </div><!-- / column -->
 
         <div class="col-md-7">
-            <img src="https://via.placeholder.com/400x300/FFB6C1/000000" alt="project-image" class="rounded">
+            <img src="@Model.Advertise.Kind.Image" alt="project-image" class="rounded">
             <div class="project-info-box">
                 <p><b>Validity Date:</b> @Model.Advertise.ValidityDate</p>
+                <p><b>Email Address:</b> @Model.Advertise.SenderEmail</p>
+                <p><b>Address:</b> @Model.Advertise.SenderAddress</p>
+                <p><b>Phone Number:</b> @Model.Advertise.SenderPhoneNumber</p>
                 <p><b>Status:</b> @Model.Advertise.Status</p>
                 <hr />
                 <p>

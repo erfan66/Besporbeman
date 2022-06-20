@@ -13,6 +13,7 @@
 			<label asp-for="Kind.Type"></label>
 			<input asp-for="Kind.Type" class="form-control" />
 			<span asp-validation-for="Kind.Type" class="text-danger"></span>
+			<input asp-for="Kind.Image" class="form-control" hidden/>
 		</div>
 		<button type="submit" class="btn btn-primary" style="width:150px;">Delete</button>
 		<a asp-page="Index" class="btn btn-secondary"  style="width:150px;"> Back</a>

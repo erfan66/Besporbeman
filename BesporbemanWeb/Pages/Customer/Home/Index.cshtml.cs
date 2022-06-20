@@ -46,8 +46,11 @@ namespace BesporbemanWeb.Pages.Customer.Home
                 Text = x.Name
             });
 
-            if (Keyword==null && OrgCity==null && DesCity==null)
+            if (Keyword==null && OrgCity== "- All Origin City -" && DesCity== "- All Destination City -")
             {
+                AdvertiseList = _unitOfWork.Advertise.GetAll(includeProperties: "Kind,Material,Origin,Destination," +
+                "Origin.City,Destination.City,Origin.City.Country,Destination.City.Country",
+                orderby: x => x.OrderByDescending(z => z.DateOfAdvertise));
                 TempData["warning"] = "The item was not found! Please try again";
             }
             else

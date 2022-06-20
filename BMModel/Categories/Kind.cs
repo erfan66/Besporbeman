@@ -14,5 +14,6 @@ namespace BMModel.Categories
         [Key]
         public int Id { get; set; }
         public string Type { get; set; }
+        public string Image { get; set; }
     }
 }

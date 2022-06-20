@@ -9,10 +9,13 @@ namespace BesporbemanWeb.Pages.Admin.Categories.Kinds
     public class CreateModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         public Kind Kind { get; set; }
-        public CreateModel(IUnitOfWork unitOfWork)
+        public CreateModel(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
+            _webHostEnvironment = webHostEnvironment;
+            Kind = new();
         }
         public void OnGet()
         {
@@ -20,14 +23,22 @@ namespace BesporbemanWeb.Pages.Admin.Categories.Kinds
         public async Task<IActionResult> OnPost()
         {
 
-            if (ModelState.IsValid)
+            string webRootPath = _webHostEnvironment.WebRootPath;
+            var files = HttpContext.Request.Form.Files;
+
+            string newFileName = Guid.NewGuid().ToString();
+            var uploads = Path.Combine(webRootPath, @"images\kinds");
+            var extension = Path.GetExtension(files[0].FileName);
+
+            using (var fileStream = new FileStream(Path.Combine(uploads, newFileName + extension), FileMode.Create))
             {
-                _unitOfWork.Kind.Add(Kind);
-                _unitOfWork.Save();
-                TempData["success"] = "Kind Created Successfully!";
-                return RedirectToPage("Index");
+                files[0].CopyTo(fileStream);
             }
-            return Page();
+            Kind.Image = @"\images\kinds\" + newFileName + extension;
+            _unitOfWork.Kind.Add(Kind);
+            _unitOfWork.Save();
+            TempData["success"] = "Kind Created Successfully!";
+            return RedirectToPage("./Index");
         }
     }
 }
