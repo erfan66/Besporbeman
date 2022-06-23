@@ -25,6 +25,11 @@ builder.Services.ConfigureApplicationCookie(option =>
     option.AccessDeniedPath = "/Identity/Account/AccessDenied";
 });
 
+builder.Services.AddAuthentication().AddFacebook(option =>
+{
+    option.AppId = "3230722367248795";
+    option.AppSecret = "eb1ff740b6844991cf890d1bcc794558";
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

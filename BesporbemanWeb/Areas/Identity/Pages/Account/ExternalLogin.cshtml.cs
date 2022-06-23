@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using BMModel;
+using BMUtility;
 
 namespace BesporbemanWeb.Areas.Identity.Pages.Account
 {
@@ -84,6 +86,21 @@ namespace BesporbemanWeb.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+            [Required]
+            [Display(Name = "Phone Number")]
+            [Phone]
+            [RegularExpression(@"^\+[0-9]{12}$", ErrorMessage = "Invalid Mobile Number.")]
+            public string PhoneNumber { get; set; }
+            [Required]
+            public string Gender { get; set; }
+            [Required]
+            public DateTime DateOfBirth { get; set; }
         }
         
         public IActionResult OnGet() => RedirectToPage("./Login");
@@ -131,7 +148,10 @@ namespace BesporbemanWeb.Areas.Identity.Pages.Account
                 {
                     Input = new InputModel
                     {
-                        Email = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        Email = info.Principal.FindFirstValue(ClaimTypes.Email),
+                        FirstName=info.Principal.FindFirstValue(ClaimTypes.Name).Split(' ')[0],
+                        LastName = info.Principal.FindFirstValue(ClaimTypes.Name).Split(' ')[1]
+
                     };
                 }
                 return Page();
@@ -155,10 +175,16 @@ namespace BesporbemanWeb.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                user.PhoneNumber = Input.PhoneNumber;
+                user.Gender = Input.Gender;
+                user.DateOfBirth = Input.DateOfBirth;
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    _userManager.AddToRoleAsync(user, SD.CustomerRole).GetAwaiter().GetResult();
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {
@@ -197,11 +223,11 @@ namespace BesporbemanWeb.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private IdentityUser CreateUser()
+        private ApplicationUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<IdentityUser>();
+                return Activator.CreateInstance<ApplicationUser>();
             }
             catch
             {

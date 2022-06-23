@@ -46,15 +46,15 @@
           "dependencies": {
             "MailKit": {
               "target": "Package",
-              "version": "[3.2.0, )"
+              "version": "[3.3.0, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.6, )"
             },
             "MimeKit": {
               "target": "Package",
-              "version": "[3.2.0, )"
+              "version": "[3.3.0, )"
             }
           },
           "imports": [
